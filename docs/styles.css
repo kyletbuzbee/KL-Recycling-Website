@@ -1,4 +1,4 @@
-@tailwind base;
+j@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -56,6 +56,15 @@
   }
 }
 
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
@@ -70,6 +79,10 @@
 
 .animate-scale-in {
   animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: gentleFloat 3s ease-in-out infinite;
 }
 
 /* Enhanced hero animations */
