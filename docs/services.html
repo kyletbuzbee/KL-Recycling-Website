@@ -132,226 +132,151 @@
 <section class="py-24 bg-white">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Our Services</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Professional solutions tailored to every customer's needs, from small cleanups to large-scale industrial projects.</p>
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Our Core Services</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive scrap metal recycling solutions tailored to every customer's needs, from construction sites to industrial facilities.</p>
     </div>
 
-    <div class="flex justify-center mb-12">
-      <div class="bg-gray-100 p-2 rounded-2xl flex flex-wrap gap-2">
-        <button onclick="setActiveServiceTab('container')" id="container-tab" data-tab="container" class="px-8 py-4 rounded-xl font-bold transition-all duration-300 text-center min-w-[200px] bg-royal-blue-600 text-white shadow-lg service-tab-button">Container Rentals</button>
-        <button onclick="setActiveServiceTab('demolition')" id="demolition-tab" data-tab="demolition" class="px-8 py-4 rounded-xl font-bold transition-all duration-300 text-center min-w-[200px] bg-white text-gray-700 hover:bg-gray-50 service-tab-button">Demolition & Cleanup</button>
-        <button onclick="setActiveServiceTab('industrial')" id="industrial-tab" data-tab="industrial" class="px-8 py-4 rounded-xl font-bold transition-all duration-300 text-center min-w-[200px] bg-white text-gray-700 hover:bg-gray-50 service-tab-button">Industrial Services</button>
-      </div>
-    </div>
-
-    <div id="container-content" class="service-content grid lg:grid-cols-2 gap-12 items-center mb-12">
-      <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
-        <img src="assets/services/roll-off.jpg" alt="Roll-off container services" class="w-full h-full object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-      </div>
-
-      <div class="space-y-6 order-1 lg:order-2">
-        <div>
-          <h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Container Rentals</h3>
-          <p class="text-lg text-gray-600 leading-relaxed mb-6">Roll-off bins, trailers, and compactors for all your disposal needs. Flexible sizes from 10-yard to 50-yard containers.</p>
-          <p class="text-lg text-gray-600 leading-relaxed">Competitive rates with rapid delivery within 24-48 hours across East Texas.</p>
+    <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <!-- Roll-off Containers -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-truck text-white text-2xl"></i>
         </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Roll-off Containers</h3>
+        <p class="text-gray-600 text-base mb-6 leading-relaxed">Convenient 20, 30, and 40-yard containers delivered to your location. Flexible rental terms with competitive pricing for construction, demolition, and industrial projects.</p>
 
-        <div class="space-y-4">
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-expand-arrows-alt text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Flexible Container Sizes</h4>
-              <p class="text-gray-600 leading-relaxed">From 10-yard bins to 50-yard roll-off containers, we have the perfect size for every project.</p>
-            </div>
+        <div class="space-y-3 mb-6 text-sm text-gray-600">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Flexible container sizes</span>
           </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-clock text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Rapid Delivery & Scheduling</h4>
-              <p class="text-gray-600 leading-relaxed">Most containers delivered within 24-48 hours with flexible pickup scheduling.</p>
-            </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Rapid delivery (24-48 hours)</span>
           </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-dollar-sign text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Transparent Pricing</h4>
-              <p class="text-gray-600 leading-relaxed">No hidden fees for collection, transportation, or hauling.</p>
-            </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>No hidden fees</span>
           </div>
         </div>
 
-        <div class="pt-6">
-          <button onclick="scrollToSection('quote')" class="inline-flex items-center px-8 py-4 bg-royal-blue-600 text-white font-bold rounded-xl hover:bg-royal-blue-700 transition-all duration-300 group">
+        <div class="flex flex-col gap-3">
+          <a href="quote.html?service=roll-off-containers" class="inline-flex items-center justify-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
             Get Container Quote
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </button>
+          </a>
+          <a href="services/roll-off.html" class="text-royal-blue-600 font-semibold hover:text-royal-blue-700 transition-colors flex items-center justify-center">
+            Learn More →
+          </a>
         </div>
       </div>
-    </div>
 
-    <div id="demolition-content" class="service-content grid lg:grid-cols-2 gap-12 items-center mb-12 hidden">
-      <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
-        <img src="assets/services/demolition.jpg" alt="Industrial demolition services" class="w-full h-full object-cover" onerror="this.src='assets/services-placeholder.jpg'">
+      <!-- Mobile Crushing -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-cogs text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Mobile Crushing</h3>
+        <p class="text-gray-600 text-base mb-6 leading-relaxed">On-site concrete and asphalt crushing services that reduce transportation costs and efficiently process construction debris at your location.</p>
+
+        <div class="space-y-3 mb-6 text-sm text-gray-600">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>On-site processing</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Reduced transportation costs</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Environmentally friendly</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <a href="quote.html?service=mobile-crushing" class="inline-flex items-center justify-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
+            Request Crushing Service
+          </a>
+          <a href="services/mobile-crushing.html" class="text-royal-blue-600 font-semibold hover:text-royal-blue-700 transition-colors flex items-center justify-center">
+            Learn More →
+          </a>
+        </div>
       </div>
 
-      <div class="space-y-6 order-1 lg:order-2">
-        <div>
-          <h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Demolition & Cleanup</h3>
-          <p class="text-lg text-gray-600 leading-relaxed mb-6">Complete demolition services with responsible scrap metal recovery. Specialized in industrial facilities and oilfield infrastructure.</p>
-          <p class="text-lg text-gray-600 leading-relaxed">Licensed and insured demolition professionals with over 50 years of experience.</p>
+      <!-- Industrial Demolition -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-building text-white text-2xl"></i>
         </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Oilfield & Industrial Demolition</h3>
+        <p class="text-gray-600 text-base mb-6 leading-relaxed">Specialized demolition services for oilfield equipment, industrial structures, and commercial properties with responsible recycling.</p>
 
-        <div class="space-y-4">
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-building text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Structural Demolition</h4>
-              <p class="text-gray-600 leading-relaxed">Complete building demolitions with careful planning and execution.</p>
-            </div>
+        <div class="space-y-3 mb-6 text-sm text-gray-600">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Licensed & insured professionals</span>
           </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-recycle text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Scrap Metal Recovery</h4>
-              <p class="text-gray-600 leading-relaxed">We recover and recycle up to 90% of demolition materials.</p>
-            </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>90%+ material recovery</span>
           </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-shield-alt text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Licensed & Insured</h4>
-              <p class="text-gray-600 leading-relaxed">Fully licensed and insured demolition professionals.</p>
-            </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Complete project management</span>
           </div>
         </div>
 
-        <div class="pt-6">
-          <button onclick="scrollToSection('quote')" class="inline-flex items-center px-8 py-4 bg-royal-blue-600 text-white font-bold rounded-xl hover:bg-royal-blue-700 transition-all duration-300 group">
+        <div class="flex flex-col gap-3">
+          <a href="quote.html?service=industrial-demolition" class="inline-flex items-center justify-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
             Schedule Demolition Service
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </button>
+          </a>
+          <a href="services/oilfield-demolition.html" class="text-royal-blue-600 font-semibold hover:text-royal-blue-700 transition-colors flex items-center justify-center">
+            Learn More →
+          </a>
         </div>
       </div>
-    </div>
 
-    <div id="industrial-content" class="service-content grid lg:grid-cols-2 gap-12 items-center mb-12 hidden">
-      <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
-        <img src="assets/services/mobile-crushing.jpg" alt="Mobile crushing and industrial services" class="w-full h-full object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-      </div>
-
-      <div class="space-y-6 order-1 lg:order-2">
-        <div>
-          <h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Industrial Services</h3>
-          <p class="text-lg text-gray-600 leading-relaxed mb-6">Scalable solutions for manufacturers and industrial facilities with high-volume processing.</p>
-          <p class="text-lg text-gray-600 leading-relaxed">Mobile crushing, scheduled pickups, and bulk processing capabilities.</p>
+      <!-- Industrial & Commercial Services -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group md:col-span-3 lg:col-span-1">
+        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-industry text-white text-2xl"></i>
         </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Industrial & Commercial Services</h3>
+        <p class="text-gray-600 text-base mb-6 leading-relaxed">Scalable solutions for manufacturers and commercial facilities including scheduled pickups, bulk processing, and high-volume metal recycling.</p>
 
-        <div class="space-y-4">
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-calendar-check text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Scheduled Pickups</h4>
-              <p class="text-gray-600 leading-relaxed">Regular collection services tailored to your production schedule.</p>
-            </div>
+        <div class="space-y-3 mb-6 text-sm text-gray-600">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Scheduled collection services</span>
           </div>
-
-          <div class="flex items-start space-x-4">
-            <div class="w-12 h-12 bg-royal-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-industry text-royal-blue-600 text-lg"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-900 mb-1">Bulk Processing</h4>
-              <p class="text-gray-600 leading-relaxed">High-volume processing capabilities for large industrial operations.</p>
-            </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Bulk processing capabilities</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-check text-green-600 text-xs"></i>
+            <span>Custom account management</span>
           </div>
         </div>
 
-        <div class="pt-6">
-          <button onclick="scrollToSection('quote')" class="inline-flex items-center px-8 py-4 bg-royal-blue-600 text-white font-bold rounded-xl hover:bg-royal-blue-700 transition-all duration-300 group">
+        <div class="flex flex-col gap-3">
+          <a href="quote.html?service=industrial-services" class="inline-flex items-center justify-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
             Industrial Solutions Inquiry
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
+          </a>
+          <button onclick="scrollToSection('contact')" class="text-royal-blue-600 font-semibold hover:text-royal-blue-700 transition-colors flex items-center justify-center">
+            Discuss Your Needs →
           </button>
         </div>
       </div>
     </div>
 
     <div class="text-center mt-16">
-      <p class="text-lg text-gray-600 mb-6">Not sure which service is right for you?</p>
+      <h3 class="text-2xl font-bold text-gray-900 mb-4">Need Something More Specific?</h3>
+      <p class="text-lg text-gray-600 mb-8">Not sure which service is right for you? Our team can help determine the best solution for your project.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button onclick="scrollToSection('contact')" class="px-8 py-4 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors">Contact Our Team</button>
-        <button onclick="scrollToSection('quote')" class="px-8 py-4 bg-royal-blue-600 text-white font-bold rounded-xl hover:bg-royal-blue-700 transition-colors">Get Free Quote</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <div class="max-w-6xl mx-auto text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Our Specialized Services</h2>
-      <p class="text-lg text-gray-600">Click on any service below to learn more about our comprehensive solutions.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Roll-off Containers -->
-      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group" onclick="window.location.href='services/roll-off.html'">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i class="fas fa-truck text-white text-2xl"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Roll-off Containers</h3>
-        <p class="text-gray-600 text-base mb-6">Convenient 20, 30, and 40-yard containers delivered to your location. Perfect for construction sites, demolition projects, and large quantities of scrap metal.</p>
-      </div>
-
-      <!-- Mobile Crushing -->
-      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group" onclick="window.location.href='services/mobile-crushing.html'">
-        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i class="fas fa-cogs text-white text-2xl"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Mobile Crushing</h3>
-        <p class="text-gray-600 text-base mb-6">On-site concrete and asphalt crushing services. Reduce transportation costs and efficiently process construction debris at your location.</p>
-        <div class="text-royal-blue-600 font-semibold group-hover:text-royal-blue-700 transition-colors duration-300">Learn More →</div>
-      </div>
-
-      <!-- Industrial Demolition -->
-      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group" onclick="window.location.href='services/oilfield-demolition.html'">
-        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <i class="fas fa-building text-white text-2xl"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Oilfield & Industrial Demolition</h3>
-        <p class="text-gray-600 text-base mb-6">Specialized demolition services for oilfield equipment, industrial structures, and commercial properties. Complete removal and recycling solutions.</p>
-        <div class="text-royal-blue-600 font-semibold group-hover:text-royal-blue-700 transition-colors duration-300">Learn More →</div>
-      </div>
-
-      <!-- All Services Link -->
-      <!-- All Services Link -->
-      <div class="md:col-span-3 text-center mt-8">
-        <a href="locations.html" class="inline-block bg-royal-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-royal-blue-700 transition-colors">
-          Find a Location Near You
-        </a>
+        <a href="contact.html" class="px-8 py-4 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors">Contact Our Team</a>
+        <a href="quote.html" class="px-8 py-4 bg-royal-blue-600 text-white font-bold rounded-xl hover:bg-royal-blue-700 transition-colors">Get Free Quote</a>
+        <a href="locations.html" class="px-8 py-4 border-2 border-royal-blue-600 text-royal-blue-600 font-bold rounded-xl hover:bg-royal-blue-600 hover:text-white transition-colors">Find a Location</a>
       </div>
     </div>
   </div>
