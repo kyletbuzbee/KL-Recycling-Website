@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+e<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -37,13 +37,23 @@
       }
     }
   </script>
+
+  <!-- Leaflet CSS for interactive map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+  <!-- Leaflet JS for interactive map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 </head>
 <body>
 <header id="main-header" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 transition-all duration-300">
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
       <a href="index.html" class="flex-shrink-0">
-        <img src="assets/certifications-logo/logo.png" alt="K&L Recycling" class="w-auto h-10 hover:scale-105 transition-transform duration-300">
+        <img src="assets/certifications-logo/logo.png" alt="K&L Recycling" class="w-auto h-10 hover:scale-105 transition-transform duration-300" onerror="this.src='assets/services-placeholder.jpg'">
       </a>
 
       <nav class="hidden md:flex items-center space-x-8">
@@ -130,7 +140,7 @@
     <h1 class="text-4xl md:text-5xl font-black mb-6">Our Locations</h1>
     <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">Find a scrap metal recycling location near you across East Texas and Kansas. We pay competitive prices and offer professional service at all our facilities.</p>
     <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-      <a href="#locations-list" class="bg-white text-royal-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-colors text-lg">
+      <a href="#locations-map" class="bg-white text-royal-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-colors text-lg">
         Find Your Location
       </a>
       <a href="tel:+19035926299" class="border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-royal-blue-600 transition-colors text-lg">
@@ -140,1021 +150,90 @@
   </div>
 </section>
 
-<!-- Coverage Map Section -->
+<!-- Interactive Map and Locations Section -->
 <section class="py-16 bg-white">
   <div class="container mx-auto px-6">
-    <div class="max-w-6xl mx-auto text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Serving Multiple States</h2>
-      <p class="text-lg text-gray-600">From East Texas to Kansas, we provide professional scrap metal recycling services.</p>
+    <div class="flex flex-wrap gap-8 mb-8">
+      <div class="flex items-center">
+        <label for="state-filter" class="font-semibold mr-2">Filter by State:</label>
+        <select id="state-filter" class="p-2 rounded border border-gray-300">
+          <option value="all">All Locations</option>
+          <option value="tx">Texas</option>
+          <option value="ks">Kansas</option>
+        </select>
+      </div>
+      <div class="flex items-center">
+        <label for="service-filter" class="font-semibold mr-2">Filter by Service:</label>
+        <select id="service-filter" class="p-2 rounded border border-gray-300">
+          <option value="all">All Services</option>
+          <option value="industrial">Industrial Services</option>
+          <option value="auto">Auto Salvage</option>
+          <option value="roll-off">Roll-off Containers</option>
+        </select>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <!-- Service Coverage -->
-      <div class="space-y-6">
-        <div class="flex items-center space-x-4">
-          <div class="w-12 h-12 bg-royal-blue-600 rounded-full flex items-center justify-center">
-            <i class="fas fa-star text-white text-xl"></i>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-gray-900">Texas Facilities</h3>
-            <p class="text-gray-600">8 locations across East Texas serving diverse communities</p>
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-4">
-          <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-            <i class="fas fa-star text-white text-xl"></i>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-gray-900">Kansas Facility</h3>
-            <p class="text-gray-600">Regional facility serving the Midwestern United States</p>
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-4">
-          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-            <i class="fas fa-star text-white text-xl"></i>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-gray-900">Mobile Services</h3>
-            <p class="text-gray-600">Extended reach across TX, OK, LA, NM, KS, and AR</p>
-          </div>
-        </div>
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Interactive Map -->
+      <div id="locations-map" class="h-96 lg:h-[500px] rounded-xl shadow-lg bg-gray-100">
+        <!-- Map will be initialized via JavaScript -->
       </div>
 
-      <!-- Basic Map Placeholder -->
-      <div class="bg-gray-100 rounded-xl h-96 flex items-center justify-center">
-        <div class="text-center text-gray-500">
-          <svg class="w-24 h-24 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-          </svg>
-          <p class="text-lg font-semibold mb-2">Service Coverage Map</p>
-          <p class="text-sm">Interactive map of all 9 locations coming soon</p>
+      <!-- Locations List -->
+      <div>
+        <h3 class="text-2xl font-black text-gray-900 mb-6">Facility Directory</h3>
+        <div id="locations-list" class="space-y-6 max-h-96 overflow-y-auto">
+          <!-- Locations will be dynamically generated -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Locations List -->
-<section id="locations-list" class="py-16 bg-gray-50">
+<!-- Service Cards Section -->
+<section class="py-16 bg-gray-50">
   <div class="container mx-auto px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">All K&L Recycling Locations</h2>
-        <p class="text-lg text-gray-600">Visit any of our facilities for professional scrap metal recycling services.</p>
+    <div class="max-w-6xl mx-auto text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Our Services</h2>
+      <p class="text-lg text-gray-600">Comprehensive scrap metal recycling services tailored for your needs.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Roll-off Containers -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group" onclick="window.location.href='services/roll-off.html'">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-truck text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Roll-off Containers</h3>
+        <p class="text-gray-600 text-base mb-6">Convenient 20, 30, and 40-yard containers delivered to your location. Perfect for construction sites, demolition projects, and large quantities of scrap metal.</p>
+        <div class="text-royal-blue-600 font-semibold group-hover:text-royal-blue-700 transition-colors duration-300">Learn More →</div>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- TYLER HQ -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/locations/tyler_headquarters.png" alt="K&L Recycling Tyler Headquarters" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-            <div class="absolute top-4 right-4">
-              <span class="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold">HEADQUARTERS</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Tyler (HQ)</h3>
-            <p class="text-gray-600 text-sm mb-4">Main facility with full-service capabilities</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>4134 Chandler Highway, Tyler, TX 75702</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 592-8288</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035928288" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=4134+Chandler+Highway,+Tyler,+TX+75702" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
+      <!-- Mobile Crushing -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group" onclick="window.location.href='services/mobile-crushing.html'">
+        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-cogs text-white text-2xl"></i>
         </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Mobile Crushing</h3>
+        <p class="text-gray-600 text-base mb-6">On-site concrete and asphalt crushing services. Reduce transportation costs and efficiently process construction debris at your location.</p>
+        <div class="text-royal-blue-600 font-semibold group-hover:text-royal-blue-700 transition-colors duration-300">Learn More →</div>
+      </div>
 
-        <!-- CROCkETT -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/locations/crockett_yard.png" alt="K&L Recycling Crockett facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Crockett</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service recycling facility</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>403 South 2nd Street, Crockett, TX 75835</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(936) 544-2986</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Auto Salvage</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19365442986" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=403+South+2nd+Street,+Crockett,+TX+75835" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
+      <!-- Industrial Demolition -->
+      <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group" onclick="window.location.href='services/oilfield-demolition.html'">
+        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-building text-white text-2xl"></i>
         </div>
-
-        <!-- MINEOLA -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/locations/mineola_yard.png" alt="K&L Recycling Mineola facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Mineola</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional recycling center</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>2590 Highway 80 West, Mineola, TX 75773</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 569-6231</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Roll-off Containers</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035696231" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=2590+Highway+80+West,+Mineola,+TX+75773" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- PALESTINE -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/locations/palestine_yard.png" alt="K&L Recycling Palestine facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Palestine</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service location</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>4340 State Highway 19, Palestine, TX 75801</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 723-0171</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19037230171" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=4340+State+Highway+19,+Palestine,+TX+75801" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- NACOGDOCHES -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/locations/nacogdoches_yard.png" alt="K&L Recycling Nacogdoches facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Nacogdoches</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional facility</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>2508 Woden Road, Nacogdoches, TX 75961</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(936) 560-2244</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19365602244" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=2508+Woden+Road,+Nacogdoches,+TX+75961" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- JASPER -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/locations/jasper_yard.png" alt="K&L Recycling Jasper facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Jasper</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service recycling center</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>1953 Highway 190 West, Jasper, TX 75951</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(409) 384-9600</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+14093849600" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=1953+Highway+190+West,+Jasper,+TX+75951" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- JACKSONVILLE -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/locations/madfos_yard.png" alt="K&L Recycling Jacksonville facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Jacksonville</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional recycling facility</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>599 CR 1520, Jacksonville, TX 75766</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 586-1181</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Roll-off Containers</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035861181" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=599+CR+1520,+Jacksonville,+TX+75766" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri - Closed Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035928288" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=4134+Chandler+Highway,+Tyler,+TX+75702" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- CROCkETT -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Crockett facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Crockett</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service recycling facility</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>403 South 2nd Street, Crockett, TX 75835</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(936) 544-2986</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Auto Salvage</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19365442986" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=403+South+2nd+Street,+Crockett,+TX+75835" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- MINEOLA -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Mineola facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Mineola</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional recycling center</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>2590 Highway 80 West, Mineola, TX 75773</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 569-6231</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Roll-off Containers</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035696231" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=2590+Highway+80+West,+Mineola,+TX+75773" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- PALESTINE -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Palestine facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Palestine</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service location</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>4340 State Highway 19, Palestine, TX 75801</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 723-0171</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19037230171" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=4340+State+Highway+19,+Palestine,+TX+75801" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- NACOGDOCHES -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Nacogdoches facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Nacogdoches</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional facility</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>2508 Woden Road, Nacogdoches, TX 75961</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(936) 560-2244</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19365602244" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=2508+Woden+Road,+Nacogdoches,+TX+75961" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- JASPER -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Jasper facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Jasper</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service recycling center</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>1953 Highway 190 West, Jasper, TX 75951</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(409) 384-9600</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+14093849600" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=1953+Highway+190+West,+Jasper,+TX+75951" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- JACKSONVILLE -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Jacksonville facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Jacksonville</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional recycling facility</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>599 CR 1520, Jacksonville, TX 75766</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 586-1181</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Roll-off Containers</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035861181" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=599+CR+1520,+Jacksonville,+TX+75766" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- GREAT BEND -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Great Bend facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-            <div class="absolute top-4 right-4">
-              <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">KANSAS</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Great Bend</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional facility servicing Kansas</p>
-
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>700 Frey Street, Great Bend, KS 67530</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(620) 792-5956</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+16207925956" class="w-full bg-royal-blue
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035928288" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=4134+Chandler+Highway,+Tyler,+TX+75702" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- CROCkETT -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Crockett facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Crockett</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service recycling facility</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>403 South 2nd Street, Crockett, TX 75835</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(936) 544-2986</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Auto Salvage</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19365442986" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=403+South+2nd+Street,+Crockett,+TX+75835" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- MINEOLA -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Mineola facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Mineola</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional recycling center</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>2590 Highway 80 West, Mineola, TX 75773</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 569-6231</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Roll-off Containers</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035696231" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=2590+Highway+80+West,+Mineola,+TX+75773" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- PALESTINE -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Palestine facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Palestine</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service location</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>4340 State Highway 19, Palestine, TX 75801</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 723-0171</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19037230171" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=4340+State+Highway+19,+Palestine,+TX+75801" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- NACOGDOCHES -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Nacogdoches facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Nacogdoches</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional facility</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>2508 Woden Road, Nacogdoches, TX 75961</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(936) 560-2244</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19365602244" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=2508+Woden+Road,+Nacogdoches,+TX+75961" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- JASPER -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Jasper facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Jasper</h3>
-            <p class="text-gray-600 text-sm mb-4">Full-service recycling center</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>1953 Highway 190 West, Jasper, TX 75951</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(409) 384-9600</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+14093849600" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=1953+Highway+190+West,+Jasper,+TX+75951" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- JACKSONVILLE -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Jacksonville facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Jacksonville</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional recycling facility</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>599 CR 1520, Jacksonville, TX 75766</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 586-1181</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Roll-off Containers</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19035861181" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=599+CR+1520,+Jacksonville,+TX+75766" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- GREAT BEND -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Great Bend facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-            <div class="absolute top-4 right-4">
-              <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">KANSAS</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Great Bend</h3>
-            <p class="text-gray-600 text-sm mb-4">Regional facility servicing Kansas</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>700 Frey Street, Great Bend, KS 67530</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(620) 792-5956</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Industrial Services</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+16207925956" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=700+Frey+Street,+Great+Bend,+KS+67530" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- TYLER HIGHWAY 271 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="relative">
-            <img src="assets/services-placeholder.jpg" alt="K&L Recycling Tyler Highway 271 facility" class="w-full h-48 object-cover" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">K&L Recycling - Tyler (271)</h3>
-            <p class="text-gray-600 text-sm mb-4">Additional Tyler facility</p>
-            
-            <div class="space-y-2 mb-4">
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-map-marker-alt text-royal-blue-600"></i>
-                <span>10757 Highway 271, Tyler, TX 75708</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-phone text-royal-blue-600"></i>
-                <span>(903) 877-4442</span>
-              </div>
-              <div class="flex items-center space-x-2 text-sm text-gray-600">
-                <i class="fas fa-clock text-royal-blue-600"></i>
-                <span>9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat</span>
-              </div>
-            </div>
-
-            <div class="space-y-1 mb-6">
-              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2">Ferrous Metals</span>
-              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">Non-Ferrous Metals</span>
-            </div>
-
-            <div class="flex flex-col space-y-2">
-              <a href="tel:+19038774442" class="w-full bg-royal-blue-600 text-white text-center py-3 rounded-lg hover:bg-royal-blue-700 transition-colors font-semibold">
-                Call Location
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=10757+Highway+271,+Tyler,+TX+75708" target="_blank" rel="noopener noreferrer" class="w-full border-2 border-royal-blue-600 text-royal-blue-600 text-center py-3 rounded-lg hover:bg-royal-blue-50 transition-colors font-semibold">
-                Get Directions
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- MOBILE SERVICES CTA -->
-        <div class="bg-gradient-to-br from-royal-blue-600 to-electric-blue-600 rounded-xl p-8 text-white col-span-1 md:col-span-3">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <i class="fas fa-truck text-white text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Need Mobile Services?</h3>
-            <p class="text-xl mb-6">Our mobile crushing and roll-off container services extend our reach beyond these facilities.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="services/mobile-crushing.html" class="bg-white text-royal-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
-                Mobile Crushing
-              </a>
-              <a href="services/roll-off.html" class="border-2 border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-royal-blue-600 transition-colors font-semibold">
-                Roll-Off Containers
-              </a>
-            </div>
-          </div>
-        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Oilfield & Industrial Demolition</h3>
+        <p class="text-gray-600 text-base mb-6">Specialized demolition services for oilfield equipment, industrial structures, and commercial properties. Complete removal and recycling solutions.</p>
+        <div class="text-royal-blue-600 font-semibold group-hover:text-royal-blue-700 transition-colors duration-300">Learn More →</div>
+      </div>
+
+      <!-- All Services Link -->
+      <div class="md:col-span-3 text-center mt-8">
+        <a href="services.html" class="inline-block bg-royal-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-royal-blue-700 transition-colors">
+          View All Our Services
+        </a>
       </div>
     </div>
   </div>
@@ -1169,10 +248,10 @@
         <p class="text-lg text-gray-600">Every K&L Recycling facility offers comprehensive scrap metal recycling services</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-8">
         <div class="text-center bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
           <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-dollar-sign text-blue-600 text-3xl"></i>
+            <i class="fas fa-dollar-sign text-white text-3xl"></i>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-4">Competitive Pricing</h3>
           <p class="text-gray-600">We pay top dollar for your scrap metal with immediate cash payments on delivery.</p>
@@ -1180,7 +259,7 @@
 
         <div class="text-center bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl">
           <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-recycle text-green-600 text-3xl"></i>
+            <i class="fas fa-recycle text-white text-3xl"></i>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-4">Full-Service Recycling</h3>
           <p class="text-gray-600">Comprehensive ferrous and non-ferrous metal processing with proper environmental compliance.</p>
@@ -1188,10 +267,34 @@
 
         <div class="text-center bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-xl">
           <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-clock text-orange-600 text-3xl"></i>
+            <i class="fas fa-clock text-white text-3xl"></i>
           </div>
           <h3 class="text-xl font-bold text-gray-900 mb-4">Convenient Hours</h3>
           <p class="text-gray-600">Most locations open Monday through Saturday for customer convenience.</p>
+        </div>
+
+        <div class="text-center bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl">
+          <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-handshake text-white text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Professional Service</h3>
+          <p class="text-gray-600">Licensed professionals with over 50 years of experience ensuring quality service every time.</p>
+        </div>
+
+        <div class="text-center bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-xl">
+          <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-bolt text-white text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Quick & Efficient</h3>
+          <p class="text-gray-600">Fast processing times and on-the-spot appraisals to get you paid quickly.</p>
+        </div>
+
+        <div class="text-center bg-gradient-to-br from-teal-50 to-teal-100 p-8 rounded-xl">
+          <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-leaf text-white text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Environmentally Responsible</h3>
+          <p class="text-gray-600">Committed to sustainable recycling practices that benefit our community and planet.</p>
         </div>
       </div>
     </div>
@@ -1257,5 +360,224 @@
 </footer>
 
 <script src="scripts.js"></script>
+
+<script>
+// Locations data
+const locations = [
+  {
+    name: "K&L Recycling - Tyler (HQ)",
+    address: "4134 Chandler Highway, Tyler, TX 75702",
+    phone: "(903) 592-8288",
+    hours: "9:00 AM - 5:00 PM Mon-Fri",
+    services: ["Ferrous Metals", "Non-Ferrous Metals", "Industrial Services"],
+    isHeadquarters: true,
+    state: "TX",
+    lat: 32.3135,
+    lng: -95.3222
+  },
+  {
+    name: "K&L Recycling - Tyler Highway 271",
+    address: "10757 Highway 271, Tyler, TX 75708",
+    phone: "(903) 877-4442",
+    hours: "9:00 AM - 5:00 PM Mon-Fri",
+    services: ["Ferrous Metals", "Non-Ferrous Metals"],
+    state: "TX",
+    lat: 32.3388,
+    lng: -95.2658
+  },
+  {
+    name: "K&L Recycling - Mineola",
+    address: "2590 Highway 80 West, Mineola, TX 75773",
+    phone: "(903) 569-6231",
+    hours: "9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat",
+    services: ["Ferrous Metals", "Non-Ferrous Metals", "Roll-off Containers"],
+    state: "TX",
+    lat: 32.6609,
+    lng: -95.4975
+  },
+  {
+    name: "K&L Recycling - Crockett",
+    address: "403 South 2nd Street, Crockett, TX 75835",
+    phone: "(936) 544-2986",
+    hours: "9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat",
+    services: ["Ferrous Metals", "Non-Ferrous Metals", "Auto Salvage"],
+    state: "TX",
+    lat: 31.3186,
+    lng: -95.4564
+  },
+  {
+    name: "K&L Recycling - Palestine",
+    address: "4340 State Highway 19, Palestine, TX 75801",
+    phone: "(903) 723-0171",
+    hours: "9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat",
+    services: ["Ferrous Metals", "Non-Ferrous Metals", "Industrial Services"],
+    state: "TX",
+    lat: 31.7847,
+    lng: -95.6296
+  },
+  {
+    name: "K&L Recycling - Nacogdoches",
+    address: "2508 Woden Road, Nacogdoches, TX 75961",
+    phone: "(936) 560-2244",
+    hours: "9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat",
+    services: ["Ferrous Metals", "Non-Ferrous Metals"],
+    state: "TX",
+    lat: 31.6300,
+    lng: -94.7427
+  },
+  {
+    name: "K&L Recycling - Jasper",
+    address: "1953 Highway 190 West, Jasper, TX 75951",
+    phone: "(409) 384-9600",
+    hours: "9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat",
+    services: ["Ferrous Metals", "Non-Ferrous Metals"],
+    state: "TX",
+    lat: 30.9339,
+    lng: -94.0036
+  },
+  {
+    name: "K&L Recycling - Jacksonville",
+    address: "599 CR 1520, Jacksonville, TX 75766",
+    phone: "(903) 586-1181",
+    hours: "9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat",
+    services: ["Ferrous Metals", "Non-Ferrous Metals", "Roll-off Containers"],
+    state: "TX",
+    lat: 31.9827,
+    lng: -95.2886
+  },
+  {
+    name: "K&L Recycling - Great Bend",
+    address: "700 Frey Street, Great Bend, KS 67530",
+    phone: "(620) 792-5956",
+    hours: "9:00 AM - 5:00 PM Mon-Fri, 8:00 AM - 12:00 PM Sat",
+    services: ["Ferrous Metals", "Non-Ferrous Metals", "Industrial Services"],
+    state: "KS",
+    lat: 38.3645,
+    lng: -98.7647
+  }
+];
+
+// Initialize map and handle interactions
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Leaflet map
+  const map = L.map('locations-map').setView([32.3, -95.3], 7);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  const markers = [];
+  let currentPopup = null;
+
+  // Add markers for all locations
+  locations.forEach((location, index) => {
+    const marker = L.marker([location.lat, location.lng]).addTo(map);
+
+    marker.bindPopup(`
+      <div class="text-center">
+        <h3 class="font-bold text-lg">${location.name}</h3>
+        <p class="text-gray-600 text-sm">${location.address}</p>
+        <p class="text-gray-600 text-sm">${location.phone}</p>
+        <div class="mt-2">
+          <a href="tel:${location.phone.replace(/\D/g, '')}" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700">
+            Call Location
+          </a>
+        </div>
+      </div>
+    `);
+
+    markers.push({ marker, location });
+  });
+
+  // Map bounds to fit all markers
+  const group = new L.featureGroup(markers.map(m => m.marker));
+  map.fitBounds(group.getBounds());
+
+  // Filter controls
+  const stateFilter = document.getElementById('state-filter');
+  const serviceFilter = document.getElementById('service-filter');
+  const locationsList = document.getElementById('locations-list');
+
+  function filterLocations() {
+    const stateValue = stateFilter.value;
+    const serviceValue = serviceFilter.value;
+
+    // Clear existing markers
+    markers.forEach(m => map.removeLayer(m.marker));
+
+    // Filter locations
+    const filteredLocations = locations.filter(location => {
+      const matchesState = stateValue === 'all' || location.state === stateValue;
+      const matchesService = serviceValue === 'all' || location.services.some(service => service.toLowerCase().includes(serviceValue));
+      return matchesState && matchesService;
+    });
+
+    // Add filtered markers
+    filteredLocations.forEach((location, index) => {
+      const marker = L.marker([location.lat, location.lng]).addTo(map);
+      marker.bindPopup(`
+        <div class="text-center">
+          <h3 class="font-bold text-lg">${location.name}</h3>
+          <p class="text-gray-600 text-sm">${location.address}</p>
+          <p class="text-gray-600 text-sm">${location.phone}</p>
+          <div class="mt-2">
+            <a href="tel:${location.phone.replace(/\D/g, '')}" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700">
+              Call Location
+            </a>
+          </div>
+        </div>
+      `);
+      markers[index] = { marker, location };
+    });
+
+    // Clear existing location list
+    locationsList.innerHTML = '';
+
+    // Generate filtered location cards
+    filteredLocations.forEach(location => {
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer';
+      card.onclick = () => {
+        map.setView([location.lat, location.lng], 12);
+      };
+
+      card.innerHTML = `
+        <h4 class="text-lg font-bold text-gray-900 mb-2">${location.name}</h4>
+        ${location.isHeadquarters ? '<span class="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-sm font-bold mb-2 inline-block">HEADQUARTERS</span>' : ''}
+        <p class="text-gray-600 text-sm mb-2">${location.address}</p>
+        <p class="text-gray-600 text-sm mb-2">${location.phone}</p>
+        <p class="text-gray-600 text-sm mb-4">${location.hours}</p>
+        <div class="flex flex-wrap gap-1 mb-4">
+          ${location.services.map(service => `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">${service}</span>`).join('')}
+        </div>
+        <div class="flex gap-2">
+          <a href="tel:${location.phone.replace(/\D/g, '')}" class="flex-1 bg-royal-blue-600 text-white text-center py-2 rounded text-sm hover:bg-royal-blue-700 transition-colors">
+            Call
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}" target="_blank" rel="noopener noreferrer" class="flex-1 border border-royal-blue-600 text-royal-blue-600 text-center py-2 rounded text-sm hover:bg-royal-blue-50 transition-colors">
+            Directions
+          </a>
+        </div>
+      `;
+
+      locationsList.appendChild(card);
+    });
+
+    // Update map bounds for filtered locations
+    if (filteredLocations.length > 0) {
+      const filteredGroup = new L.featureGroup(filteredLocations.map(loc => L.marker([loc.lat, loc.lng])));
+      map.fitBounds(filteredGroup.getBounds());
+    }
+  }
+
+  // Initialize with all locations
+  filterLocations();
+
+  // Add event listeners for filters
+  stateFilter.addEventListener('change', filterLocations);
+  serviceFilter.addEventListener('change', filterLocations);
+});
+</script>
+
 </body>
 </html>
