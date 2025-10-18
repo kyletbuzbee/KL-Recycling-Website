@@ -201,7 +201,7 @@
 
       <!-- REMA Logo -->
       <div class="hidden md:block bg-white/20 rounded-xl p-2 border border-white/30">
-        <img src="assets/certifications-logo/r2-certified-logo.png" alt="REMA Certified" class="h-12 w-auto" onerror="this.src='assets/services-placeholder.jpg'">
+        <img src="assets/certifications-logo/ReMa-certified-logo.png" alt="REMA Certified" class="h-12 w-auto" onerror="this.src='assets/services-placeholder.jpg'">
       </div>
     </div>
 
@@ -511,6 +511,18 @@
     </div>
   </div>
 </footer>
+
+<div id="chat-widget" class="fixed bottom-5 right-5 z-50">
+  <button onclick="toggleChat()" class="bg-royal-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-royal-blue-700 transition-all">
+    <i class="fas fa-comments"></i>
+  </button>
+  <div id="chat-popup" class="hidden absolute bottom-full right-0 mb-4 bg-white rounded-lg shadow-xl border p-4 w-80">
+    <h3 class="font-bold mb-3">Need Help?</h3>
+    <p class="text-sm mb-3">Contact us for recycling information</p>
+    <a href="contact.html" class="block bg-royal-blue-600 text-white py-2 px-4 rounded text-center">Contact Us</a>
+    <button onclick="toggleChat()" class="mt-2 text-gray-500">Close</button>
+  </div>
+</div>
 
 <script src="scripts.js"></script>
 </body>

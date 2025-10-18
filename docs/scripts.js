@@ -190,6 +190,12 @@ function submitQuoteForm() {
   }
 }
 
+// Chat widget toggle
+function toggleChat() {
+  const popup = document.getElementById('chat-popup');
+  popup.classList.toggle('hidden');
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   // Any initialization code here
