@@ -121,13 +121,7 @@
 
 <div class="h-20"></div>
 
-<section class="subpage-hero">
-  <div class="hero-icon-wrapper">
-    <i class="fas fa-tools text-4xl text-white"></i>
-  </div>
-  <h1>Professional Metal Recycling Services</h1>
-  <p>From container rentals to industrial demolition, we handle all your scrap metal recycling needs with professionalism and integrity.</p>
-</section>
+
 
 <section class="py-24 bg-white">
   <div class="container mx-auto px-6">
@@ -140,7 +134,7 @@
     <div class="max-w-6xl mx-auto">
       <!-- Tab Navigation -->
       <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
-        <button onclick="switchServiceTab('general')" id="general-tab" class="tab-button active text-lg font-semibold px-6 py-4 text-royal-blue-600 border-b-2 border-royal-blue-600 transition-colors">
+        <button onclick="switchServiceTab('general')" id="general-tab" class="tab-button active text-lg font-bold px-6 py-4 bg-royal-blue-50 text-royal-blue-600 border-b-4 border-royal-blue-600 transition-colors">
           General Services
         </button>
         <button onclick="switchServiceTab('specialized')" id="specialized-tab" class="tab-button text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors">
@@ -153,14 +147,14 @@
 
       <!-- Tab Content -->
       <div id="general-services" class="tab-content">
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
           <!-- Container Rentals -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
             <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="fas fa-truck text-white text-2xl"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Container Rentals</h3>
-            <div class="space-y-4 mb-6">
+            <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
                 <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
@@ -189,12 +183,12 @@
           </div>
 
           <!-- Commercial Pickups -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
             <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="fas fa-industry text-white text-2xl"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Commercial Pickups</h3>
-            <div class="space-y-4 mb-6">
+            <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
                 <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
@@ -223,12 +217,12 @@
           </div>
 
           <!-- Cash for Scrap -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
             <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="fas fa-dollar-sign text-white text-2xl"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Cash for Scrap</h3>
-            <div class="space-y-4 mb-6">
+            <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
                 <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
@@ -257,12 +251,12 @@
           </div>
 
           <!-- Public Drop-Off -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
             <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="fas fa-users text-white text-2xl"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Public Services</h3>
-            <div class="space-y-4 mb-6">
+            <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
                 <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
@@ -293,7 +287,7 @@
       </div>
 
       <div id="specialized-services" class="tab-content hidden">
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
           <!-- Industrial Demolition -->
           <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
             <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -461,7 +455,7 @@
       </div>
 
       <div id="equipment-services" class="tab-content hidden">
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
           <!-- Roll-Off Containers -->
           <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
             <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -634,7 +628,7 @@
       <p class="text-lg text-gray-600 mb-8">Not sure which service is right for you? Our team can help determine the best solution for your project.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="contact.html" class="px-8 py-4 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors">Contact Our Team</a>
-        <a href="quote.html" class="px-8 py-4 bg-royal-blue-600 text-white font-bold rounded-xl hover:bg-royal-blue-700 transition-colors">Get Free Quote</a>
+        <a href="quote.html" class="px-8 py-4 border-2 border-royal-blue-600 text-royal-blue-600 font-bold rounded-xl hover:bg-royal-blue-600 hover:text-white transition-colors">Get Free Quote</a>
         <a href="locations.html" class="px-8 py-4 border-2 border-royal-blue-600 text-royal-blue-600 font-bold rounded-xl hover:bg-royal-blue-600 hover:text-white transition-colors">Find a Location</a>
       </div>
     </div>
@@ -684,9 +678,6 @@
         </div>
       </div>
     </div>
-    <div class="mt-12 text-center">
-      <a href="quote.html" class="inline-block bg-royal-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-royal-blue-700 transition-colors">Get a Quote</a>
-    </div>
     <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
       <p>&copy; 2025 K&L Recycling. All Rights Reserved.</p>
     </div>
@@ -704,8 +695,8 @@ function switchServiceTab(tabName) {
   // Remove active class from all tab buttons
   const tabButtons = document.querySelectorAll('.tab-button');
   tabButtons.forEach(button => {
-    button.classList.remove('active', 'text-royal-blue-600', 'border-b-2', 'border-royal-blue-600');
-    button.classList.add('text-gray-500');
+    button.classList.remove('active', 'text-royal-blue-600', 'bg-royal-blue-50', 'border-b-4', 'border-royal-blue-600', 'font-bold');
+    button.classList.add('text-gray-500', 'font-semibold', 'border-b-2');
   });
 
   // Show selected tab content
@@ -717,8 +708,8 @@ function switchServiceTab(tabName) {
   // Set active tab button
   const selectedButton = document.getElementById(tabName + '-tab');
   if (selectedButton) {
-    selectedButton.classList.add('active', 'text-royal-blue-600', 'border-b-2', 'border-royal-blue-600');
-    selectedButton.classList.remove('text-gray-500');
+    selectedButton.classList.add('active', 'text-royal-blue-600', 'bg-royal-blue-50', 'border-b-4', 'border-royal-blue-600', 'font-bold');
+    selectedButton.classList.remove('text-gray-500', 'font-semibold');
   }
 }
 
