@@ -2,14 +2,26 @@
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const icon = document.getElementById('mobile-menu-icon');
-  const isOpen = menu.classList.contains('open');
 
-  if (isOpen) {
-    menu.classList.remove('open');
-    icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-  } else {
+  if (!menu) {
+    console.error('Mobile menu element not found');
+    return;
+  }
+
+  const isHidden = menu.classList.contains('hidden');
+
+  if (isHidden) {
+    menu.classList.remove('hidden');
     menu.classList.add('open');
-    icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    if (icon) {
+      icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    }
+  } else {
+    menu.classList.add('hidden');
+    menu.classList.remove('open');
+    if (icon) {
+      icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    }
   }
 }
 
