@@ -318,8 +318,227 @@ function toggleChat() {
   popup.classList.toggle('hidden');
 }
 
-// Initialize on page load
+// Typewriter effect for text elements
+function typewriterEffect(element, text, speed = 50) {
+  element.innerHTML = '';
+  let i = 0;
+  const timer = setInterval(() => {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(timer);
+    }
+  }, speed);
+}
+
+// Legacy typewriter function kept for future use
+function initTypewriter() {
+  const typewriterElements = document.querySelectorAll('.typewriter-text');
+  typewriterElements.forEach(element => {
+    const text = element.textContent;
+    element.innerHTML = ''; // Clear first
+    typewriterEffect(element, text, 100);
+  });
+}
+
+// Animated counter for numbers
+function animateCounter(element, target, duration = 2000, suffix = '') {
+  let start = 0;
+  const increment = target / (duration / 16); // 60fps
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      element.textContent = target + suffix;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(start) + suffix;
+    }
+  }, 16);
+}
+
+// Intersection Observer for scroll-triggered animations
+function createScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-slide-in');
+        if (entry.target.dataset.counter) {
+          animateCounter(entry.target, parseInt(entry.target.dataset.counter), 2000, entry.target.dataset.suffix || '');
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for animation
+  document.querySelectorAll('[data-animate], .animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+// Interactive material cards
+function enhanceMaterialCards() {
+  const cards = document.querySelectorAll('.material-card, .bg-white.p-8.rounded-2xl');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px) scale(1.02)';
+      this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+
+      // Show expanded details if they exist
+      const details = this.querySelector('.card-details');
+      if (details) {
+        details.style.maxHeight = '200px';
+        details.style.opacity = '1';
+      }
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+      this.style.boxShadow = '0 10px 15px -3px rgb(0 0 0 / 0.1)';
+
+      const details = this.querySelector('.card-details');
+      if (details) {
+        details.style.maxHeight = '0';
+        details.style.opacity = '0';
+      }
+    });
+  });
+}
+
+// Progress bars animation
+function animateProgressBars() {
+  const bars = document.querySelectorAll('.progress-bar');
+  bars.forEach(bar => {
+    const width = bar.dataset.width || '0%';
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 500);
+  });
+}
+
+// Parallax effect for hero background
+function addParallaxEffect() {
+  window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('#hero');
+    if (hero) {
+      const bg = hero.querySelector('.absolute.bg-cover');
+      if (bg) {
+        bg.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+    }
+  });
+}
+
+// Modal functionality
+function showModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      modal.classList.add('modal-visible');
+    }, 10);
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('modal-visible');
+    document.body.style.overflow = 'auto';
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300);
+  }
+}
+
+// Carousel/slider functionality
+function createCarousel(containerClass) {
+  const containers = document.querySelectorAll('.' + containerClass);
+  containers.forEach(container => {
+    const slides = container.querySelectorAll('.carousel-slide');
+    const prevBtn = container.querySelector('.carousel-prev');
+    const nextBtn = container.querySelector('.carousel-next');
+    const indicators = container.querySelectorAll('.carousel-indicator');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === index);
+      });
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Auto-play
+    setInterval(nextSlide, 5000);
+
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    indicators.forEach((indicator, i) => {
+      indicator.addEventListener('click', () => showSlide(i));
+    });
+  });
+}
+
+// Enhanced form interactions
+function enhanceForms() {
+  const inputs = document.querySelectorAll('input, textarea, select');
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.parentNode.classList.add('focused');
+    });
+
+    input.addEventListener('blur', function() {
+      if (!this.value) {
+        this.parentNode.classList.remove('focused');
+      }
+    });
+  });
+}
+
+// Initialize all enhancements on page load
 document.addEventListener('DOMContentLoaded', function() {
-  // Any initialization code here
-  console.log('K&L Recycling website loaded successfully');
+  createScrollAnimations();
+  enhanceMaterialCards();
+  animateProgressBars();
+  addParallaxEffect();
+  createCarousel('carousel-container');
+  enhanceForms();
+
+  console.log('K&L Recycling website loaded successfully with enhanced interactivity');
+});
+
+// Slide-up animations for hero title
+document.addEventListener('DOMContentLoaded', function() {
+  // Hero title slide-up animations with delays
+  const lines = document.querySelectorAll('.animate-slide-up-1, .animate-slide-up-2');
+  lines.forEach((line, index) => {
+    line.style.opacity = '0';
+    line.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      line.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      line.style.opacity = '1';
+      line.style.transform = 'translateY(0)';
+    }, index * 300); // Stagger the animations
+  });
 });

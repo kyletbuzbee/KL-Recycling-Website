@@ -203,9 +203,9 @@
   </div>
 </header>
 
-<section id="animated-banner" class="bg-gradient-to-r from-royal-blue-600 via-electric-blue-600 to-royal-blue-700 text-white py-16 relative overflow-hidden pt-20">
+<section id="animated-banner" class="bg-gradient-to-r from-royal-blue-600 via-electric-blue-600 to-royal-blue-700 text-white relative overflow-hidden" style="min-height: 80px; padding: 40px 0;">
   <div class="container mx-auto px-6">
-    <div class="flex items-center justify-center gap-8 max-w-6xl mx-auto">
+    <div class="flex items-center justify-center gap-8 max-w-6xl mx-auto min-h-[80px]">
       <!-- ISN Logo -->
       <div class="hidden md:block bg-white/10 rounded-xl p-2">
         <img src="assets/certifications-logo/isn-logo.png" alt="ISN Certified" class="h-12 w-auto">
@@ -230,18 +230,18 @@
   </div>
 </section>
 
-<section id="hero" class="relative w-full h-screen flex items-center justify-center text-center text-white overflow-hidden pt-20">
-  <!-- Background Image -->
-  <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-0" style="background-image: url('assets/layout/hero-background.jpg');"></div>
+<section id="hero" class="relative w-full h-screen flex items-center justify-center text-center text-white overflow-hidden pt-20 parallax-section">
+  <!-- Background Image with Parallax -->
+  <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 parallax-bg" style="background-image: url('assets/layout/hero-background.jpg');"></div>
 
   <!-- Dark Overlay -->
   <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
 
   <!-- Content -->
-  <div class="relative z-20 p-4 max-w-6xl mx-auto">
-    <h1 class="text-4xl md:text-7xl lg:text-8xl font-black uppercase mb-6 flex flex-col" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7); font-weight: 700;">
-      <span>East Texas Built</span>
-      <span class="mt-2 md:mt-4">Nationally Trusted.</span>
+  <div class="relative z-20 p-4 max-w-6xl mx-auto animate-on-scroll">
+    <h1 class="text-4xl md:text-7xl lg:text-8xl font-black uppercase mb-6 flex flex-col hero-title-animation" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7); font-weight: 700;">
+      <span class="animate-slide-up-1">East Texas Built</span>
+      <span class="mt-2 md:mt-4 animate-slide-up-2">Nationally Trusted.</span>
     </h1>
     <p class="text-lg md:text-2xl lg:text-3xl max-w-5xl mx-auto mb-12 leading-relaxed" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
       A family-owned legacy of integrity, serving our local community and partners across the country since 1956.
@@ -257,20 +257,22 @@
       </a>
     </div>
 
-    <!-- Trust Badges -->
-    <div class="bg-black/20 backdrop-blur-sm border border-white/20 rounded-xl p-4 mt-12 max-w-md mx-auto">
-      <div class="flex justify-center items-center gap-8 text-white">
+    <!-- Modern Trust Badges -->
+    <div class="bg-white/10 backdrop-blur-sm border border-white/30 rounded-2xl p-6 mt-12 max-w-lg mx-auto shadow-lg">
+      <div class="flex justify-center items-center gap-6 text-white">
         <div class="text-center">
-          <p class="text-2xl font-bold">56+</p>
-          <p class="text-sm">Years of Service</p>
+          <div class="text-3xl font-black mb-1 counter-number" data-counter="56" data-suffix="+">56+</div>
+          <div class="text-xs font-medium opacity-90">Years of Service</div>
         </div>
+        <div class="w-px h-12 bg-white/30"></div>
         <div class="text-center">
-          <p class="text-2xl font-bold">9</p>
-          <p class="text-sm">Locations</p>
+          <div class="text-3xl font-black mb-1 counter-number" data-counter="9">9</div>
+          <div class="text-xs font-medium opacity-90">Locations</div>
         </div>
+        <div class="w-px h-12 bg-white/30"></div>
         <div class="text-center">
-          <p class="text-2xl font-bold">REMA Certified</p>
-          <p class="text-sm">Sustainable Practices</p>
+          <div class="text-3xl font-black mb-1">REMA</div>
+          <div class="text-xs font-medium opacity-90">Certified</div>
         </div>
       </div>
     </div>
@@ -315,7 +317,7 @@
   </div>
 </section>
 
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50 animate-on-scroll">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Understanding Your Metals</h2>
@@ -323,36 +325,79 @@
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-      <div class="bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-shadow duration-300">
+      <div class="material-card bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
         <div class="text-6xl mb-6 text-blue-600 animate-float">
           <i class="fas fa-magnet"></i>
         </div>
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Ferrous Metals</h3>
         <p class="text-gray-600 mb-6 leading-relaxed">Magnetic metals with iron content including steel, iron, and metal alloys used in construction and manufacturing.</p>
-        <div class="text-sm text-gray-500 bg-blue-50 px-4 py-2 rounded-full inline-block">
+
+        <div class="text-sm text-gray-500 bg-blue-50 px-4 py-2 rounded-full inline-block mb-4">
           Average: 60% of our volume
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container mb-4">
+          <div class="progress-bar" data-width="60%"></div>
+        </div>
+
+        <!-- Expandable Details -->
+        <div class="card-details bg-blue-50 rounded-lg p-4">
+          <p class="text-sm text-gray-700">Examples: Steel beams, iron pipes, automotive scrap, construction materials. These metals are magnetic and form the foundation of our recycling business.</p>
         </div>
       </div>
 
-      <div class="bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-shadow duration-300">
+      <div class="material-card bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
         <div class="text-6xl mb-6 text-green-600 animate-float">
           <i class="fas fa-recycle"></i>
         </div>
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Non-Ferrous Metals</h3>
         <p class="text-gray-600 mb-6 leading-relaxed">Valuable metals without iron content including copper, aluminum, brass, and stainless steel for higher market value.</p>
-        <div class="text-sm text-gray-500 bg-green-50 px-4 py-2 rounded-full inline-block">
+
+        <div class="text-sm text-gray-500 bg-green-50 px-4 py-2 rounded-full inline-block mb-4">
           Average: 30% of our volume
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container mb-4">
+          <div class="progress-bar" data-width="30%"></div>
+        </div>
+
+        <!-- Expandable Details -->
+        <div class="card-details bg-green-50 rounded-lg p-4">
+          <p class="text-sm text-gray-700">Examples: Copper wire, aluminum cans, brass fixtures, stainless steel sinks. These metals command premium prices due to their corrosion resistance and conductivity.</p>
         </div>
       </div>
 
-      <div class="bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-shadow duration-300">
+      <div class="material-card bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
         <div class="text-6xl mb-6 text-yellow-600 animate-float">
           <i class="fas fa-star"></i>
         </div>
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Precious Metals</h3>
         <p class="text-gray-600 mb-6 leading-relaxed">High-value specialty commodities including gold, silver, platinum, and other rare metals from electronics and industry.</p>
-        <div class="text-sm text-gray-500 bg-yellow-50 px-4 py-2 rounded-full inline-block">
+
+        <div class="text-sm text-gray-500 bg-yellow-50 px-4 py-2 rounded-full inline-block mb-4">
           Average: 10% of our volume
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container mb-4">
+          <div class="progress-bar" data-width="10%"></div>
+        </div>
+
+        <!-- Expandable Details -->
+        <div class="card-details bg-yellow-50 rounded-lg p-4">
+          <p class="text-sm text-gray-700">Examples: Gold jewelry, silver teeth, platinum from catalytic converters, palladium from electronics. These specialty materials require expert handling and fetch the highest market prices.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Service Details -->
+    <div id="service-modal" class="modal-overlay">
+      <div class="modal-content max-w-2xl">
+        <button onclick="closeModal('service-modal')" class="modal-close">&times;</button>
+        <div id="modal-content">
+          <!-- Content will be populated by JavaScript -->
         </div>
       </div>
     </div>
@@ -365,11 +410,16 @@
   </div>
 </section>
 
-<section class="py-20 bg-white">
+<section class="py-20 bg-white animate-on-scroll">
   <div class="container mx-auto px-6 text-center">
     <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8">What Our Customers Say</h2>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+    <!-- Testimonial Carousel -->
+    <div class="carousel-container relative max-w-6xl mx-auto">
+      <div class="overflow-hidden">
+        <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-slider">
+          <!-- Testimonial Slides -->
+          <div class="carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4 active">
       <!-- Testimonial 1 -->
       <div class="bg-light-blue p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group">
         <div class="text-6xl text-blue-200 opacity-50 absolute top-4 right-4">"</div>
