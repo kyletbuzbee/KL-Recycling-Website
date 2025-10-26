@@ -53,7 +53,7 @@ e<!DOCTYPE html>
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
       <a href="index.html" class="flex-shrink-0">
-        <img src="assets/certifications-logo/logo.png" alt="K&L Recycling" class="w-auto h-10 hover:scale-105 transition-transform duration-300" onerror="this.src='assets/services-placeholder.jpg'">
+        <img src="assets/certifications-logo/logo.png" alt="K&L Recycling" class="w-auto h-10 hover:scale-105 transition-transform duration-300" onerror="this.src='assets/layout/hero-background.jpg'">
       </a>
 
       <nav class="hidden md:flex items-center space-x-8">
@@ -633,39 +633,87 @@ const locations = [
 
 // Initialize map and handle interactions
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize Leaflet map
-  const map = L.map('locations-map').setView([32.3, -95.3], 7);
+  // Initialize Leaflet map with error handling
+  let map;
+  try {
+    map = L.map('locations-map').setView([32.3, -95.3], 7);
+  } catch (error) {
+    console.error('Error initializing map:', error);
+    document.getElementById('locations-map').innerHTML = '<div class="flex items-center justify-center h-full text-gray-500"><i class="fas fa-map-marked-alt text-4xl mb-4"></i><p>Interactive map loading...</p></div>';
+    return;
+  }
 
+  // Enhanced tile layer with better styling
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+    minZoom: 6
   }).addTo(map);
 
   const markers = [];
   let currentPopup = null;
 
-  // Add markers for all locations
+  // Custom marker icons
+  const defaultIcon = L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const hqIcon = L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [30, 46],
+    iconAnchor: [15, 46],
+    popupAnchor: [1, -34],
+    shadowSize: [46, 46],
+    className: 'hq-marker'
+  });
+
+  // Add markers for all locations with enhanced popups
   locations.forEach((location, index) => {
-    const marker = L.marker([location.lat, location.lng]).addTo(map);
+    const icon = location.isHeadquarters ? hqIcon : defaultIcon;
+    const marker = L.marker([location.lat, location.lng], { icon: icon }).addTo(map);
 
     marker.bindPopup(`
-      <div class="text-center">
-        <h3 class="font-bold text-lg">${location.name}</h3>
-        <p class="text-gray-600 text-sm">${location.address}</p>
-        <p class="text-gray-600 text-sm">${location.phone}</p>
-        <div class="mt-2">
-          <a href="tel:+1${location.phoneDigits}" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700">
-            Call Location
+      <div class="text-center p-2" style="min-width: 200px;">
+        <h3 class="font-bold text-lg text-gray-900 mb-2">${location.name}</h3>
+        ${location.isHeadquarters ? '<span class="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-bold mb-2 inline-block">HEADQUARTERS</span>' : ''}
+        <p class="text-gray-600 text-sm mb-1">${location.address}</p>
+        <p class="text-gray-600 text-sm mb-3">${location.phone}</p>
+        <p class="text-gray-600 text-xs mb-3">${location.hours}</p>
+        <div class="flex flex-col gap-2">
+          <a href="tel:+1${location.phoneDigits}" class="bg-green-600 text-white px-3 py-2 rounded text-sm hover:bg-green-700 transition-colors text-center">
+            <i class="fas fa-phone mr-1"></i> Call Location
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 transition-colors text-center">
+            <i class="fas fa-directions mr-1"></i> Get Directions
           </a>
         </div>
       </div>
-    `);
+    `, {
+      className: 'custom-popup',
+      maxWidth: 250
+    });
+
+    marker.on('click', function() {
+      if (currentPopup) {
+        currentPopup.closePopup();
+      }
+      currentPopup = this;
+    });
 
     markers.push({ marker, location });
   });
 
-  // Map bounds to fit all markers
-  const group = new L.featureGroup(markers.map(m => m.marker));
-  map.fitBounds(group.getBounds());
+  // Map bounds to fit all markers with padding
+  if (markers.length > 0) {
+    const group = new L.featureGroup(markers.map(m => m.marker));
+    map.fitBounds(group.getBounds(), { padding: [20, 20] });
+  }
 
   // Filter controls
   const stateFilter = document.getElementById('state-filter');

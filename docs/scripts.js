@@ -1,7 +1,8 @@
-// Mobile menu toggle with animations
+// Enhanced mobile menu toggle with animations
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const icon = document.getElementById('mobile-menu-icon');
+  const header = document.getElementById('main-header');
 
   if (!menu) {
     console.error('Mobile menu element not found');
@@ -11,14 +12,44 @@ function toggleMobileMenu() {
   const isHidden = menu.classList.contains('hidden');
 
   if (isHidden) {
+    // Open menu
     menu.classList.remove('hidden');
-    menu.classList.add('open');
+    menu.classList.add('animate-fade-in-up');
+    header.classList.add('menu-open');
+
+    // Animate menu items
+    const menuItems = menu.querySelectorAll('a, button');
+    menuItems.forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        item.style.transition = 'all 0.3s ease';
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, index * 50);
+    });
+
     if (icon) {
       icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
     }
   } else {
-    menu.classList.add('hidden');
-    menu.classList.remove('open');
+    // Close menu
+    header.classList.remove('menu-open');
+
+    // Animate menu items out
+    const menuItems = menu.querySelectorAll('a, button');
+    menuItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(-20px)';
+      }, index * 30);
+    });
+
+    setTimeout(() => {
+      menu.classList.add('hidden');
+      menu.classList.remove('animate-fade-in-up');
+    }, 300);
+
     if (icon) {
       icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
     }
@@ -168,37 +199,116 @@ function getTierDetails(tier) {
   return details[tier] || '<p>Details not available for this tier.</p>';
 }
 
-// Form validation and submission
+// Enhanced form validation and submission
 function validateForm(formId) {
   const form = document.getElementById(formId);
+  if (!form) {
+    console.error(`Form with id ${formId} not found`);
+    return false;
+  }
+
   const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
   let isValid = true;
+  let firstErrorField = null;
 
   inputs.forEach(input => {
+    const errorElement = input.parentNode.querySelector('.error-message');
+    if (errorElement) errorElement.remove();
+
     if (!input.value.trim()) {
       input.classList.add('border-red-500');
+      input.classList.remove('border-green-500');
+      showFieldError(input, 'This field is required');
+      if (!firstErrorField) firstErrorField = input;
       isValid = false;
     } else {
       input.classList.remove('border-red-500');
+      input.classList.add('border-green-500');
+      // Additional validation for specific fields
+      if (input.type === 'email' && !isValidEmail(input.value)) {
+        input.classList.add('border-red-500');
+        input.classList.remove('border-green-500');
+        showFieldError(input, 'Please enter a valid email address');
+        if (!firstErrorField) firstErrorField = input;
+        isValid = false;
+      } else if (input.type === 'tel' && !isValidPhone(input.value)) {
+        input.classList.add('border-red-500');
+        input.classList.remove('border-green-500');
+        showFieldError(input, 'Please enter a valid phone number');
+        if (!firstErrorField) firstErrorField = input;
+        isValid = false;
+      }
     }
   });
+
+  if (firstErrorField) {
+    firstErrorField.focus();
+    firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
   return isValid;
 }
 
+function showFieldError(input, message) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-message text-red-500 text-sm mt-1';
+  errorDiv.textContent = message;
+  input.parentNode.appendChild(errorDiv);
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function isValidPhone(phone) {
+  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+  return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+}
+
 function submitContactForm() {
   if (validateForm('contact-form')) {
-    // Simulate form submission
-    alert('Thank you for your message! We will get back to you within 24 hours.');
-    document.getElementById('contact-form').reset();
+    // Show loading state
+    const submitBtn = document.querySelector('#contact-form button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+
+    // Simulate form submission with delay
+    setTimeout(() => {
+      alert('Thank you for your message! We will get back to you within 24 hours.');
+      document.getElementById('contact-form').reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+
+      // Clear validation styles
+      document.querySelectorAll('#contact-form input, #contact-form select, #contact-form textarea').forEach(field => {
+        field.classList.remove('border-red-500', 'border-green-500');
+      });
+    }, 1500);
   }
 }
 
 function submitQuoteForm() {
   if (validateForm('quote-form')) {
-    // Simulate form submission
-    alert('Thank you for your quote request! Our team will contact you within 24 hours.');
-    document.getElementById('quote-form').reset();
+    // Show loading state
+    const submitBtn = document.querySelector('#quote-form button[type="button"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+
+    // Simulate form submission with delay
+    setTimeout(() => {
+      alert('Thank you for your quote request! Our team will contact you within 24 hours.');
+      document.getElementById('quote-form').reset();
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+
+      // Clear validation styles
+      document.querySelectorAll('#quote-form input, #quote-form select, #quote-form textarea').forEach(field => {
+        field.classList.remove('border-red-500', 'border-green-500');
+      });
+    }, 1500);
   }
 }
 
