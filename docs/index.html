@@ -229,8 +229,8 @@
   <!-- Background Image with Parallax -->
   <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 parallax-bg" style="background-image: url('assets/layout/hero-background.jpg');"></div>
 
-  <!-- Dark Overlay -->
-  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+  <!-- Dark Overlay for Better Text Readability -->
+  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
 
   <!-- Content -->
   <div class="relative z-20 p-4 max-w-6xl mx-auto animate-on-scroll">
@@ -515,27 +515,73 @@
       </div>
     </div>
 
-    <!-- Trusted Partners Section -->
-    <div class="mt-20">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8">Trusted by Industry Leaders</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">Building relationships across East Texas since 1956, serving industries from construction to manufacturing.</p>
+    <!-- Real Trust Bar with Client Logos -->
+    <div class="mt-20 overflow-hidden">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Trusted by Industry Leaders</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Join hundreds of satisfied customers across East Texas who trust us for their recycling needs.</p>
       </div>
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-        <div class="group cursor-pointer filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300">
-          <p>Fritcher Construction</p>
-        </div>
-        <div class="group cursor-pointer filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300">
-          <p>East Texas Manufacturing</p>
-        </div>
-        <div class="group cursor-pointer filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300">
-          <p>Texas Fabricators</p>
-        </div>
-        <div class="group cursor-pointer filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300">
-          <p>Lone Star Auto Sales</p>
-        </div>
-        <div class="group cursor-pointer filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300">
-          <p>Nacogdoches County</p>
+
+      <!-- Auto-scrolling Logo Carousel -->
+      <div class="relative">
+        <div class="flex animate-marquee space-x-8">
+          <!-- First set of logos -->
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <img src="assets/certifications-logo/logo.png" alt="K&L Recycling Certified" class="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <img src="assets/certifications-logo/isn-logo.png" alt="ISN Certified" class="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <img src="assets/certifications-logo/ReMa-certified-logo.png" alt="REMA Certified" class="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='assets/services-placeholder.jpg'">
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-royal-blue-600 mb-1">Fritcher</div>
+              <div class="text-sm font-medium text-gray-600">Construction</div>
+            </div>
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-royal-blue-600 mb-1">East Texas</div>
+              <div class="text-sm font-medium text-gray-600">Manufacturing</div>
+            </div>
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-royal-blue-600 mb-1">Nacogdoches</div>
+              <div class="text-sm font-medium text-gray-600">County</div>
+            </div>
+          </div>
+
+          <!-- Duplicate set for seamless scrolling -->
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <img src="assets/certifications-logo/logo.png" alt="K&L Recycling Certified" class="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <img src="assets/certifications-logo/isn-logo.png" alt="ISN Certified" class="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <img src="assets/certifications-logo/ReMa-certified-logo.png" alt="REMA Certified" class="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='assets/services-placeholder.jpg'">
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-royal-blue-600 mb-1">Fritcher</div>
+              <div class="text-sm font-medium text-gray-600">Construction</div>
+            </div>
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-royal-blue-600 mb-1">East Texas</div>
+              <div class="text-sm font-medium text-gray-600">Manufacturing</div>
+            </div>
+          </div>
+          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-royal-blue-600 mb-1">Nacogdoches</div>
+              <div class="text-sm font-medium text-gray-600">County</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

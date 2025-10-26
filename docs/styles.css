@@ -466,20 +466,34 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f7f7f7;
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #0b3d91, #093173);
-  border-radius: 4px;
+    background: linear-gradient(180deg, #0b3d91, #3b82f6);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #093173, #072555);
+    background: linear-gradient(180deg, #072555, #2563eb);
+}
+
+/* Auto-scrolling marquee animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
 }
 
 /* Form styling enhancements */
