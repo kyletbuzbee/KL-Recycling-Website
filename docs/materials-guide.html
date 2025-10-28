@@ -219,31 +219,31 @@
     <!-- Category Filters -->
     <div id="category-filters" class="flex flex-wrap justify-center gap-4 mb-8">
       <button data-category="all" class="category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 bg-blue-600 text-white">
-        <span class="text-lg">📋</span>
+        <img src="assets/icons/services_build.png" alt="All Materials" class="w-5 h-5">
         <span>All Materials</span>
       </button>
       <button data-category="ferrous" class="category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 bg-gray-100 text-gray-700">
-        <span class="text-lg">🔧</span>
+        <img src="assets/icons/metal_steel_fragments.png" alt="Steel & Iron" class="w-5 h-5">
         <span>Steel & Iron</span>
       </button>
       <button data-category="non-ferrous" class="category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 bg-gray-100 text-gray-700">
-        <span class="text-lg">🥉</span>
+        <img src="assets/icons/metal_copper_wiring.png" alt="Copper & Brass" class="w-5 h-5">
         <span>Copper & Brass</span>
       </button>
       <button data-category="electronic" class="category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 bg-gray-100 text-gray-700">
-        <span class="text-lg">🔌</span>
+        <img src="assets/icons/pickup_schedule_calendar.png" alt="Electronics" class="w-5 h-5">
         <span>Electronics</span>
       </button>
       <button data-category="industrial" class="category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 bg-gray-100 text-gray-700">
-        <span class="text-lg">🏭</span>
+        <img src="assets/icons/warehouse_facility.png" alt="Industrial" class="w-5 h-5">
         <span>Industrial</span>
       </button>
       <button data-category="household" class="category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 bg-gray-100 text-gray-700">
-        <span class="text-lg">🏠</span>
+        <img src="assets/icons/education_school.png" alt="Household" class="w-5 h-5">
         <span>Household</span>
       </button>
       <button data-category="automotive" class="category-btn px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 bg-gray-100 text-gray-700">
-        <span class="text-lg">🚗</span>
+        <img src="assets/icons/car_crusher_mobile.png" alt="Automotive" class="w-5 h-5">
         <span>Automotive</span>
       </button>
     </div>
@@ -545,28 +545,28 @@ const materials = [
     category: "ferrous",
     description: "Heavy duty steel structural materials, I-beams, and support beams. Clean materials preferred.",
     tags: ["structural steel", "construction"],
-    icon: "🔧"
+    icon: "assets/icons/metal_steel_fragments.png"
   },
   {
     title: "Steel Scrap",
     category: "ferrous",
     description: "Mixed steel scrap, plates, angles, and miscellaneous steel pieces.",
     tags: ["steel", "scrap metal"],
-    icon: "🔧"
+    icon: "assets/icons/metal_steel_fragments.png"
   },
   {
     title: "Cast Iron",
     category: "ferrous",
     description: "Cast iron pipes, fittings, engine blocks, and cookware.",
     tags: ["cast iron", "machinery"],
-    icon: "🔧"
+    icon: "assets/icons/metal_steel_fragments.png"
   },
   {
     title: "Rebar",
     category: "ferrous",
     description: "Steel rebar and reinforcing rods from construction sites.",
     tags: ["reinforced concrete", "building materials"],
-    icon: "🔧"
+    icon: "assets/icons/metal_steel_fragments.png"
   },
 
   // Non-Ferrous Materials
@@ -575,35 +575,35 @@ const materials = [
     category: "non-ferrous",
     description: "Insulated and non-insulated copper wires from electrical applications.",
     tags: ["electrical", "copper"],
-    icon: "🥉"
+    icon: "assets/icons/metal_copper_wiring.png"
   },
   {
     title: "Brass",
     category: "non-ferrous",
     description: "Brass fixtures, pipes, and fittings from plumbing applications.",
     tags: ["brass", "plumbing"],
-    icon: "🥉"
+    icon: "assets/icons/metal_copper_wiring.png"
   },
   {
     title: "Aluminum Cans",
     category: "non-ferrous",
     description: "Crushed or non-crushed soft drink cans and other aluminum cans.",
     tags: ["beverage cans", "recycling"],
-    icon: "🔄"
+    icon: "assets/icons/metal_aluminum_sheets.png"
   },
   {
     title: "Aluminum Scrap",
     category: "non-ferrous",
     description: "Aluminum siding, gutters, wheels, and extrusions.",
     tags: ["gutters", "siding", "automotive"],
-    icon: "🔄"
+    icon: "assets/icons/metal_aluminum_sheets.png"
   },
   {
     title: "Stainless Steel",
     category: "non-ferrous",
     description: "Stainless steel appliances, cookware, and industrial equipment.",
     tags: ["kitchen appliances", "industrial"],
-    icon: "🥉"
+    icon: "assets/icons/metal_copper_wiring.png"
   },
 
   // Electronic Materials
@@ -612,14 +612,14 @@ const materials = [
     category: "electronic",
     description: "Computer circuit boards, motherboards, and electronic scrap containing precious metals.",
     tags: ["precious metals", "gold"],
-    icon: "🔌"
+    icon: "assets/icons/business_client_portal.png"
   },
   {
     title: "Electronic Waste",
     category: "electronic",
     description: "Computer components, TVs, monitors, and other electronic devices.",
     tags: ["computers", "precious metals"],
-    icon: "🔌"
+    icon: "assets/icons/business_client_portal.png"
   },
 
   // Industrial Materials
@@ -628,28 +628,28 @@ const materials = [
     category: "industrial",
     description: "Complete vehicles for scrap metal recovery. Must include title.",
     tags: ["automotive", "title required"],
-    icon: "🚗"
+    icon: "assets/icons/car_crusher_mobile.png"
   },
   {
     title: "Lead Batteries",
     category: "industrial",
     description: "Automotive and industrial lead-acid batteries.",
     tags: ["lead acid", "automotive"],
-    icon: "🔋"
+    icon: "assets/icons/impact_sustainability.png"
   },
   {
     title: "Compressors",
     category: "industrial",
     description: "AC compressors from vehicles and appliances containing copper and aluminum.",
     tags: ["HVAC", "automotive"],
-    icon: "🏭"
+    icon: "assets/icons/warehouse_facility.png"
   },
   {
     title: "Electric Motors",
     category: "industrial",
     description: "Electric motors and transformers from industrial equipment.",
     tags: ["motors", "industrial"],
-    icon: "🏭"
+    icon: "assets/icons/warehouse_facility.png"
   },
 
   // Specialty Materials from materials.html
@@ -658,56 +658,56 @@ const materials = [
     category: "industrial",
     description: "Automotive parts, components, and die-cast materials from manufacturing processes.",
     tags: ["manufacturing", "automotive"],
-    icon: "🔧"
+    icon: "assets/icons/metal_steel_fragments.png"
   },
   {
     title: "Tin & Lead Solder",
     category: "electronic",
     description: "PCB scrap, solder paste, and electronics containing tin-lead alloys.",
     tags: ["electronics", "alloys"],
-    icon: "🔌"
+    icon: "assets/icons/business_client_portal.png"
   },
   {
     title: "Catalytic Converters",
     category: "automotive",
     description: "Ceramics and metals from automotive catalytic converters. Contact for specific requirements.",
     tags: ["ceramics", "automotive"],
-    icon: "🚗"
+    icon: "assets/icons/car_crusher_mobile.png"
   },
   {
     title: "Industrial Fixtures",
     category: "industrial",
     description: "Metal fixtures, equipment parts, and manufacturing remains from industrial operations.",
     tags: ["manufacturing", "equipment"],
-    icon: "🏭"
+    icon: "assets/icons/warehouse_facility.png"
   },
   {
     title: "Utility Poles",
     category: "industrial",
     description: "Retired utility poles and treated wood containing metal hardware and attachments.",
     tags: ["infrastructure", "utility"],
-    icon: "⚡"
+    icon: "assets/icons/truck_delivery_mobile.png"
   },
   {
     title: "Specialty Alloys",
     category: "industrial",
     description: "High-temperature alloys, titanium, and specialty metals from aerospace and manufacturing.",
     tags: ["aerospace", "high-tech"],
-    icon: "🔬"
+    icon: "assets/icons/ai_analysis.png"
   },
   {
     title: "Commercial Signage",
     category: "industrial",
     description: "Aluminum and metal from commercial signage, billboards, and outdoor advertising materials.",
     tags: ["advertising", "commercial"],
-    icon: "📢"
+    icon: "assets/icons/material_detector.png"
   },
   {
     title: "Appliances",
     category: "household",
     description: "Metal components from decommissioned appliances, HVAC equipment, and commercial kitchen appliances.",
     tags: ["appliances", "commercial"],
-    icon: "🏡"
+    icon: "assets/icons/home_dashboard.png"
   }
 ];
 

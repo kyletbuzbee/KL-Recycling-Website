@@ -4,27 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K&L Recycling - Scrap Metal Recycling Services | East Texas</title>
-  <meta name="description" content="Professional scrap metal recycling services in East Texas since 1956. Fair prices, certified scales, and family-owned integrity. Serving industries and individuals alike.">
-  <meta name="keywords" content="scrap metal recycling, East Texas, metal prices, roll-off containers, demolition services, K&L Recycling, scrap yard">
+  <meta name="description" content="Professional scrap metal recycling services in East Texas since 1970. Fair prices, certified scales, and family-owned integrity. Serving industries and individuals alike.">
+  <meta name="keywords" content="scrap metal recycling, East Texas, metal prices, roll-off containers, demolition services, K&L Recycling, scrap yard, ferrous metals, non-ferrous metals">
   <meta name="author" content="K&L Recycling">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://www.klrecycling.com">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <meta name="theme-color" content="#0b3d91">
 
+  <!-- Preload critical resources -->
+  <link rel="preload" href="scripts.js" as="script">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="business.business">
   <meta property="og:url" content="https://www.klrecycling.com/">
   <meta property="og:title" content="K&L Recycling - Scrap Metal Recycling Services | East Texas">
-  <meta property="og:description" content="Professional scrap metal recycling services in East Texas since 1956. Fair prices, certified scales, and family-owned integrity.">
+  <meta property="og:description" content="Professional scrap metal recycling services in East Texas since 1970. Fair prices, certified scales, and family-owned integrity. Serving industries and individuals alike.">
   <meta property="og:image" content="https://www.klrecycling.com/assets/layout/hero-background.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="K&L Recycling">
+  <meta property="og:locale" content="en_US">
+  <meta property="business:contact_data:street_address" content="4134 Chandler Hwy">
+  <meta property="business:contact_data:locality" content="Tyler">
+  <meta property="business:contact_data:region" content="TX">
+  <meta property="business:contact_data:postal_code" content="75702">
+  <meta property="business:contact_data:country_name" content="United States">
+  <meta property="business:contact_data:phone_number" content="903-592-6299">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://www.klrecycling.com/">
   <meta property="twitter:title" content="K&L Recycling - Scrap Metal Recycling Services | East Texas">
-  <meta property="twitter:description" content="Professional scrap metal recycling services in East Texas since 1956. Fair prices, certified scales, and family-owned integrity.">
+  <meta property="twitter:description" content="Professional scrap metal recycling services in East Texas since 1970. Fair prices, certified scales, and family-owned integrity.">
   <meta property="twitter:image" content="https://www.klrecycling.com/assets/layout/hero-background.jpg">
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="geo.region" content="US-TX">
+  <meta name="geo.placename" content="Tyler">
+  <meta name="ICBM" content="32.2202, -95.3008">
   <script src="https://cdn.tailwindcss.com/3.4.3"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -120,6 +142,124 @@
     .animate-float {
       animation: gentleFloat 3s ease-in-out infinite;
     }
+
+    /* Accessibility and Focus Management */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .sr-only.focus:not-sr-only,
+    .sr-only.focus:not(.sr-only) {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: initial;
+      margin: initial;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+
+    /* Focus outlines for accessibility */
+    a:focus,
+    button:focus,
+    [tabindex]:focus,
+    [role="article"]:focus {
+      outline: 3px solid #0b3d91;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 1px #ffffff, 0 0 0 4px #0b3d91;
+    }
+
+    /* High contrast focus for better visibility */
+    @media (prefers-contrast: high) {
+      a:focus,
+      button:focus,
+      [tabindex]:focus,
+      [role="article"]:focus {
+        outline: 3px solid #000000;
+        outline-offset: 2px;
+      }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      ::before,
+      ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Focus management for testimonials */
+    #customer-testimonials .testimonial-card:focus {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ensure text scales with browser zoom */
+    html {
+      font-size: 1rem;
+    }
+
+    /* Color variables for consistent theming */
+    :root {
+      --testimonial-bg: #eaf2ff;
+      --testimonial-hover: #dbe8ff;
+      --rating-star: #fbbf24;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --accent-blue: #2563eb;
+      --border-grey: #e5e7eb;
+      --success-bg: #f0fdf4;
+      --success-text: #166534;
+    }
+
+    /* Responsive grid adjustments */
+    @media (max-width: 767px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .testimonial-card {
+        padding: 1rem;
+      }
+
+      .testimonial-card blockquote {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+    }
+
+    /* A/B Test Styles */
+    .test-variant-compact .testimonial-card blockquote {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .test-variant-compact .testimonial-card .show-more-text {
+      display: inline-block;
+      color: var(--accent-blue);
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 0.25rem;
+    }
+
+    .test-variant-compact .testimonial-card .show-more-text:focus {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -130,10 +270,10 @@
         <img src="assets/certifications-logo/logo.png" alt="K&L Recycling" class="w-auto h-10 hover:scale-105 transition-transform duration-300" onerror="this.src='assets/services-placeholder.jpg'">
       </a>
 
-      <nav class="hidden md:flex items-center space-x-8">
-        <a href="quote.html" class="border-2 border-royal-blue-600 text-royal-blue-600 px-6 py-2.5 rounded-lg font-semibold hover:bg-royal-blue-600 hover:text-white transition-all duration-300">Get Quote</a>
-        <a href="services.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">Services</a>
-        <div class="relative group">
+      <nav class="hidden md:flex items-center">
+        <a href="quote.html" class="border-2 border-royal-blue-600 text-royal-blue-600 px-6 py-2.5 rounded-lg font-semibold hover:bg-royal-blue-600 hover:text-white transition-all duration-300 px-3">Get Quote</a>
+        <a href="services.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">Services</a>
+        <div class="relative group px-3">
           <a href="materials-we-buy.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors flex items-center">
             Materials <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </a>
@@ -142,10 +282,10 @@
             <a href="materials-guide.html" class="block px-3 py-2 text-sm text-slate-gray-700 hover:bg-gray-100 rounded">Materials Guide</a>
           </div>
         </div>
-        <a href="locations.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">Locations</a>
-        <a href="contact.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">Contact</a>
-        <a href="about.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">About</a>
-        <div class="relative group">
+        <a href="locations.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">Locations</a>
+        <a href="contact.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">Contact</a>
+        <a href="about.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">About</a>
+        <div class="relative group px-3">
           <a href="resources.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors flex items-center">
             Resources <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </a>
@@ -210,7 +350,7 @@
   <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 parallax-bg" style="background-image: url('assets/layout/hero-background.jpg');"></div>
 
   <!-- Dark Overlay for Better Text Readability -->
-  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
 
   <!-- Content -->
   <div class="relative z-20 p-4 max-w-6xl mx-auto animate-on-scroll">
@@ -219,7 +359,7 @@
       <span class="mt-2 md:mt-4 animate-slide-up-2">Nationally Trusted.</span>
     </h1>
     <p class="text-lg md:text-2xl lg:text-3xl max-w-5xl mx-auto mb-12 leading-relaxed" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
-      A family-owned legacy of integrity, serving our local community and partners across the country since 1956.
+      A family-owned legacy of integrity, serving our local community and partners across the country since 1970.
     </p>
 
     <!-- Call-to-Action Buttons -->
@@ -245,7 +385,7 @@
               <path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/>
             </svg>
             <div class="text-center">
-              <div class="text-2xl font-black counter-number" data-counter="56" data-suffix="+">56+</div>
+              <div class="text-2xl font-black counter-number" data-counter="55" data-suffix="+">55+</div>
               <div class="text-xs font-bold opacity-70">Years</div>
             </div>
           </div>
@@ -281,14 +421,14 @@
 <section class="py-24 bg-slate-50">
   <div class="container mx-auto px-6 max-w-7xl">
     <div class="text-center mb-16">
-      <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">A FAMILY LEGACY SINCE 1956</h2>
+      <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">A FAMILY LEGACY SINCE 1970</h2>
       <h3 class="text-3xl md:text-4xl font-bold text-royal-blue-700 mb-12">Three Generations of Trust</h3>
     </div>
 
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div class="order-2 lg:order-1">
+    <div class="order-2 lg:order-1">
         <div class="rounded-2xl overflow-hidden shadow-2xl">
-          <img src="assets/community/community_grace_community_school.jpg" alt="K&L Recycling community partnership with Grace Community School" class="w-full h-96 object-cover" loading="lazy">
+          <img src="assets/community/community_grace_community_school.jpg" alt="K&L Recycling community partnership with Grace Community School" class="w-full h-96 object-cover" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -323,10 +463,10 @@
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">Learn about different metal types, current market values, and how we ensure fair pricing for all materials.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
       <div class="material-card bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
-        <div class="text-6xl mb-6 text-blue-600 animate-float">
-          <i class="fas fa-magnet"></i>
+        <div class="professional-icon mb-6">
+          <i class="fas fa-tools" style="font-size: 3rem;"></i>
         </div>
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Ferrous Metals</h3>
         <p class="text-gray-600 mb-6 leading-relaxed">Magnetic metals with iron content including steel, iron, and metal alloys used in construction and manufacturing.</p>
@@ -347,8 +487,8 @@
       </div>
 
       <div class="material-card bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
-        <div class="text-6xl mb-6 text-green-600 animate-float">
-          <i class="fas fa-recycle"></i>
+        <div class="professional-icon mb-6">
+          <i class="fas fa-gem" style="font-size: 3rem;"></i>
         </div>
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Non-Ferrous Metals</h3>
         <p class="text-gray-600 mb-6 leading-relaxed">Valuable metals without iron content including copper, aluminum, brass, and stainless steel for higher market value.</p>
@@ -368,27 +508,7 @@
         </div>
       </div>
 
-      <div class="material-card bg-white p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all duration-300">
-        <div class="text-6xl mb-6 text-yellow-600 animate-float">
-          <i class="fas fa-star"></i>
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Precious Metals</h3>
-        <p class="text-gray-600 mb-6 leading-relaxed">High-value specialty commodities including gold, silver, platinum, and other rare metals from electronics and industry.</p>
 
-        <div class="text-sm text-gray-500 bg-yellow-50 px-4 py-2 rounded-full inline-block mb-4">
-          Average: 10% of our volume
-        </div>
-
-        <!-- Progress Bar -->
-        <div class="progress-container mb-4">
-          <div class="progress-bar" data-width="10%"></div>
-        </div>
-
-        <!-- Expandable Details -->
-        <div class="card-details bg-yellow-50 rounded-lg p-4">
-          <p class="text-sm text-gray-700">Examples: Gold jewelry, silver teeth, platinum from catalytic converters, palladium from electronics. These specialty materials require expert handling and fetch the highest market prices.</p>
-        </div>
-      </div>
     </div>
 
     <!-- Modal for Service Details -->
@@ -409,144 +529,166 @@
   </div>
 </section>
 
-<section class="py-20 bg-white animate-on-scroll">
+<!-- Testimonials Section - A/B Test Container -->
+<section id="customer-testimonials" class="testimonials-section test-variant-expanded py-20 bg-white animate-on-scroll" data-testid="testimonials-section">
   <div class="container mx-auto px-6 text-center">
-    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8">What Our Customers Say</h2>
+    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8" id="testimonials-heading">What Our Customers Say</h2>
 
-    <!-- Testimonial Carousel -->
-    <div class="carousel-container relative max-w-6xl mx-auto">
-      <div class="overflow-hidden">
-        <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-slider">
-          <!-- Testimonial Slides -->
-          <div class="carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4 active">
+    <!-- Skip Link for Screen Readers -->
+    <a href="#trust-bar" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-royal-blue-600 text-white px-4 py-2 rounded" id="skip-testimonials">Skip Customer Testimonials</a>
+
+    <!-- Testimonials Grid -->
+    <div class="testimonials-grid max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6" role="region" aria-labelledby="testimonials-heading" aria-live="polite">
       <!-- Testimonial 1 -->
-      <div class="bg-light-blue p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group">
-        <div class="text-6xl text-blue-200 opacity-50 absolute top-4 right-4">"</div>
-        <div class="mb-6 relative flex justify-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-royal-blue-500 to-electric-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
+      <article class="testimonial-card bg-light-blue p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group"
+               role="article"
+               aria-label="Customer testimonial from John D., Operations Manager at East Texas Manufacturing"
+               itemscope itemtype="https://schema.org/Review"
+               tabindex="0">
+        <!-- Star Rating with Screen Reader Text -->
+        <div class="flex justify-center mb-4" role="img" aria-label="5-star rating">
+          <span class="sr-only">Rated 5 out of 5 stars</span>
+          <div class="flex" aria-hidden="true">
+            <!-- Replace with SVG stars -->
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
           </div>
         </div>
-        <div class="flex justify-center mb-4">
-          <span class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</span>
-        </div>
-        <p class="text-base text-gray-700 mb-6 leading-relaxed">K&L's container service is night and day compared to our last vendor. They are always on time, which has completely eliminated our production bottlenecks. The team treats us like family, not just another customer.</p>
-        <div class="border-t border-gray-100 pt-6">
-          <cite class="block not-italic font-bold text-gray-900 text-lg">John D.</cite>
+
+        <!-- Quote Symbol -->
+        <div class="text-6xl text-blue-200 opacity-50 absolute top-4 right-4 pointer-events-none" aria-hidden="true">"</div>
+
+        <!-- Review Body -->
+        <blockquote class="text-base text-gray-700 mb-6 leading-relaxed" itemprop="reviewBody">
+          K&L's container service is night and day compared to our last vendor. They are always on time, which has completely eliminated our production bottlenecks. The team treats us like family, not just another customer.
+        </blockquote>
+
+        <!-- Author Information -->
+        <footer class="border-t border-gray-100 pt-6">
+          <cite class="block not-italic font-bold text-gray-900 text-lg" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">John D.</span>
+          </cite>
           <div class="text-gray-600 text-sm mt-1">
-            <p>Operations Manager</p>
-            <p class="font-medium text-blue-600">East Texas Manufacturing</p>
+            <p><span itemprop="jobTitle">Operations Manager</span></p>
+            <p class="font-medium text-blue-600" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name">East Texas Manufacturing</span>
+            </p>
             <p class="text-gray-500">Tyler, TX</p>
           </div>
-          <div class="mt-3 flex flex-wrap gap-1">
-            <span class="inline-block bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Verified Customer</span>
-            <span class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">Roll-Off Containers</span>
+          <!-- Service Tags -->
+          <div class="mt-3 flex flex-wrap gap-1 justify-center">
+            <span class="inline-block bg-green-50 text-green-800 text-xs font-semibold px-3 py-1 rounded-full border border-green-200" role="badge">Verified Customer</span>
+            <span class="inline-block bg-blue-50 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200" role="badge">Roll-Off Containers</span>
           </div>
-        </div>
-      </div>
+        </footer>
+
+        <!-- Schema.org Structured Data -->
+        <meta itemprop="reviewRating" content="5" />
+      </article>
 
       <!-- Testimonial 2 -->
-      <div class="bg-light-blue p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group">
-        <div class="text-6xl text-blue-200 opacity-50 absolute top-4 right-4">"</div>
-        <div class="mb-6 relative flex justify-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-royal-blue-500 to-electric-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
+      <article class="testimonial-card bg-light-blue p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group"
+               role="article"
+               aria-label="Customer testimonial from Sarah P., Project Lead at Fritcher Construction"
+               itemscope itemtype="https://schema.org/Review"
+               tabindex="0">
+        <!-- Star Rating with Screen Reader Text -->
+        <div class="flex justify-center mb-4" role="img" aria-label="5-star rating">
+          <span class="sr-only">Rated 5 out of 5 stars</span>
+          <div class="flex" aria-hidden="true">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
           </div>
         </div>
-        <div class="flex justify-center mb-4">
-          <span class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</span>
-        </div>
-        <p class="text-base text-gray-700 mb-6 leading-relaxed">Their team is professional, their pricing is transparent, and they are a true partner in our demolition projects. The compliance paperwork was handled perfectly, and we never had a safety concern.</p>
-        <div class="border-t border-gray-100 pt-6">
-          <cite class="block not-italic font-bold text-gray-900 text-lg">Sarah P.</cite>
+
+        <!-- Quote Symbol -->
+        <div class="text-6xl text-blue-200 opacity-50 absolute top-4 right-4 pointer-events-none" aria-hidden="true">"</div>
+
+        <!-- Review Body -->
+        <blockquote class="text-base text-gray-700 mb-6 leading-relaxed" itemprop="reviewBody">
+          Their team is professional, their pricing is transparent, and they are a true partner in our demolition projects. The compliance paperwork was handled perfectly, and we never had a safety concern.
+        </blockquote>
+
+        <!-- Author Information -->
+        <footer class="border-t border-gray-100 pt-6">
+          <cite class="block not-italic font-bold text-gray-900 text-lg" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">Sarah P.</span>
+          </cite>
           <div class="text-gray-600 text-sm mt-1">
-            <p>Project Lead</p>
-            <p class="font-medium text-blue-600">Fritcher Construction</p>
+            <p><span itemprop="jobTitle">Project Lead</span></p>
+            <p class="font-medium text-blue-600" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name">Fritcher Construction</span>
+            </p>
             <p class="text-gray-500">Palestine, TX</p>
           </div>
-          <div class="mt-3 flex flex-wrap gap-1">
-            <span class="inline-block bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Verified Customer</span>
-            <span class="inline-block bg-orange-50 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full">Industrial Demolition</span>
+          <!-- Service Tags -->
+          <div class="mt-3 flex flex-wrap gap-1 justify-center">
+            <span class="inline-block bg-green-50 text-green-800 text-xs font-semibold px-3 py-1 rounded-full border border-green-200" role="badge">Verified Customer</span>
+            <span class="inline-block bg-orange-50 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full border border-orange-200" role="badge">Industrial Demolition</span>
           </div>
-        </div>
-      </div>
+        </footer>
+
+        <!-- Schema.org Structured Data -->
+        <meta itemprop="reviewRating" content="5" />
+      </article>
 
       <!-- Testimonial 3 -->
-      <div class="bg-light-blue p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group">
-        <div class="text-6xl text-blue-200 opacity-50 absolute top-4 right-4">"</div>
-        <div class="mb-6 relative flex justify-center">
-          <div class="w-16 h-16 bg-gradient-to-r from-royal-blue-500 to-electric-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
+      <article class="testimonial-card bg-light-blue p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group"
+               role="article"
+               aria-label="Customer testimonial from Mike R., Facility Director at Texas Industrial Fabricators"
+               itemscope itemtype="https://schema.org/Review"
+               tabindex="0">
+        <!-- Star Rating with Screen Reader Text -->
+        <div class="flex justify-center mb-4" role="img" aria-label="5-star rating">
+          <span class="sr-only">Rated 5 out of 5 stars</span>
+          <div class="flex" aria-hidden="true">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.38l-5 4.86 1.18 6.88L12 17.77l-6.18 3.35L7 14.24 2 9.38l6.91-1.12L12 2z"/></svg>
           </div>
         </div>
-        <div class="flex justify-center mb-4">
-          <span class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</span>
-        </div>
-        <p class="text-base text-gray-700 mb-6 leading-relaxed">Working with K&L has significantly increased our scrap revenue. Their guidance on sorting materials has been invaluable for our bottom line.</p>
-        <div class="border-t border-gray-100 pt-6">
-          <cite class="block not-italic font-bold text-gray-900 text-lg">Mike R.</cite>
+
+        <!-- Quote Symbol -->
+        <div class="text-6xl text-blue-200 opacity-50 absolute top-4 right-4 pointer-events-none" aria-hidden="true">"</div>
+
+        <!-- Review Body -->
+        <blockquote class="text-base text-gray-700 mb-6 leading-relaxed" itemprop="reviewBody">
+          Working with K&L has significantly increased our scrap revenue. Their guidance on sorting materials has been invaluable for our bottom line.
+        </blockquote>
+
+        <!-- Author Information -->
+        <footer class="border-t border-gray-100 pt-6">
+          <cite class="block not-italic font-bold text-gray-900 text-lg" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">Mike R.</span>
+          </cite>
           <div class="text-gray-600 text-sm mt-1">
-            <p>Facility Director</p>
-            <p class="font-medium text-blue-600">Texas Industrial Fabricators</p>
+            <p><span itemprop="jobTitle">Facility Director</span></p>
+            <p class="font-medium text-blue-600" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name">Texas Industrial Fabricators</span>
+            </p>
             <p class="text-gray-500">Mineola, TX</p>
           </div>
-          <div class="mt-3 flex flex-wrap gap-1">
-            <span class="inline-block bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Verified Customer</span>
-            <span class="inline-block bg-purple-50 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">Material Processing</span>
+          <!-- Service Tags -->
+          <div class="mt-3 flex flex-wrap gap-1 justify-center">
+            <span class="inline-block bg-green-50 text-green-800 text-xs font-semibold px-3 py-1 rounded-full border border-green-200" role="badge">Verified Customer</span>
+            <span class="inline-block bg-purple-50 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full border border-purple-200" role="badge">Material Processing</span>
           </div>
-        </div>
-      </div>
+        </footer>
+
+        <!-- Schema.org Structured Data -->
+        <meta itemprop="reviewRating" content="5" />
+      </article>
     </div>
 
-    <!-- Real Trust Bar with Client Logos -->
-    <div class="mt-20 overflow-hidden">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Trusted by Industry Leaders</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Join hundreds of satisfied customers across East Texas who trust us for their recycling needs.</p>
-      </div>
 
-      <!-- Client Logos -->
-      <div class="max-w-6xl mx-auto">
-        <div class="flex items-center justify-center flex-wrap gap-8">
-          <!-- First set of logos -->
-          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
-            <img src="assets/certifications-logo/logo.png" alt="K&L Recycling Certified" class="h-16 w-auto object-contain transition-all duration-300">
-          </div>
-          <div class="bg-white rounded-xl px-8 py-6 shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-2xl transition-all duration-300 min-h-[100px]">
-            <img src="assets/certifications-logo/isn-logo.png" alt="ISN Certified" class="h-16 w-auto object-contain transition-all duration-300">
-          </div>
-          <div class="bg-white rounded-xl px-8 py-6 shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-2xl transition-all duration-300 min-h-[100px]">
-            <img src="assets/certifications-logo/ReMa-certified-logo.png" alt="REMA Certified" class="h-16 w-auto object-contain transition-all duration-300" onerror="this.src='assets/services-placeholder.jpg'">
-          </div>
-          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-royal-blue-600 mb-1">Fritcher</div>
-              <div class="text-sm font-medium text-gray-600">Construction</div>
-            </div>
-          </div>
-          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-royal-blue-600 mb-1">East Texas</div>
-              <div class="text-sm font-medium text-gray-600">Manufacturing</div>
-            </div>
-          </div>
-          <div class="flex-shrink-0 bg-white rounded-lg px-6 py-4 shadow-sm border border-gray-200 min-w-[200px] flex items-center justify-center hover:shadow-md transition-all duration-300">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-royal-blue-600 mb-1">Nacogdoches</div>
-              <div class="text-sm font-medium text-gray-600">County</div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -588,9 +730,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-12 text-center">
-      <a href="quote.html" class="inline-block bg-royal-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-royal-blue-700 transition-colors">Get a Quote</a>
-    </div>
+
     <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
       <p>&copy; 2025 K&L Recycling. All Rights Reserved.</p>
     </div>
@@ -609,17 +749,81 @@
   </div>
 </div>
 
+  <script src="icon-config.js"></script>
   <script src="scripts.js"></script>
 
   <!-- JSON-LD Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "LocalBusiness", "Corporation"],
+    "@id": "https://www.klrecycling.com",
     "name": "K&L Recycling",
+    "alternateName": "KL Recycling",
     "url": "https://www.klrecycling.com",
-    "logo": "https://www.klrecycling.com/assets/certifications-logo/logo.png",
-    "description": "Professional scrap metal recycling services in East Texas since 1956. Fair prices, certified scales, and family-owned integrity. Serving industries and individuals alike.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.klrecycling.com/assets/certifications-logo/logo.png",
+      "height": 400,
+      "width": 400
+    },
+    "image": [
+      "https://www.klrecycling.com/assets/layout/hero-background.jpg",
+      "https://www.klrecycling.com/assets/certifications-logo/logo.png"
+    ],
+    "description": "Professional scrap metal recycling services in East Texas since 1970. Fair prices, certified scales, and family-owned integrity. Serving industries and individuals alike with ferrous and non-ferrous metal recycling.",
+    "foundingDate": "1970",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "KL Family"
+      }
+    ],
+    "slogan": "East Texas Built, Nationally Trusted",
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Texas",
+        "containsPlace": [
+          {
+            "@type": "City",
+            "name": "Tyler"
+          },
+          {
+            "@type": "City",
+            "name": "Longview"
+          },
+          {
+            "@type": "City",
+            "name": "Palestine"
+          },
+          {
+            "@type": "City",
+            "name": "Mineola"
+          },
+          {
+            "@type": "City",
+            "name": "Jasper"
+          },
+          {
+            "@type": "City",
+            "name": "Killeen"
+          },
+          {
+            "@type": "City",
+            "name": "Crockett"
+          },
+          {
+            "@type": "City",
+            "name": "Nacogdoches"
+          }
+        ]
+      },
+      {
+        "@type": "Place",
+        "name": "East Texas Region"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "4134 Chandler Hwy",
@@ -628,20 +832,194 @@
       "postalCode": "75702",
       "addressCountry": "US"
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-903-592-6299",
-      "contactType": "customer service",
-      "availableLanguage": "English"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.2202,
+      "longitude": -95.3008
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "500"
-    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+1-903-592-6299",
+        "contactType": "customer service",
+        "availableLanguage": "English",
+        "contactOption": "TollFree"
+      },
+      {
+        "@type": "ContactPoint",
+        "url": "https://www.klrecycling.com/contact",
+        "contactType": "customer service",
+        "availableLanguage": "English"
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/klrecycling",
-      "https://www.linkedin.com/company/klrecycling"
+      "https://www.linkedin.com/company/klrecycling",
+      "https://www.youtube.com/@klrecycling"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Metal Recycling Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ferrous Metal Recycling",
+            "description": "Steel, iron, and magnetic metals recycling with certified weighing and fair pricing"
+          },
+          "@id": "https://www.klrecycling.com/services#ferrous"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Non-Ferrous Metal Recycling",
+            "description": "Copper, aluminum, brass, and stainless steel recycling for premium value"
+          },
+          "@id": "https://www.klrecycling.com/services#non-ferrous"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Roll-Off Container Services",
+            "description": "Flexible container rental and delivery across East Texas"
+          },
+          "@id": "https://www.klrecycling.com/services#containers"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Industrial Demolition",
+            "description": "Professional demolition and metal recovery with environmental compliance"
+          },
+          "@id": "https://www.klrecycling.com/services#demolition"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mobile Crushing Services",
+            "description": "On-site concrete and asphalt crushing for landfill reduction"
+          },
+          "@id": "https://www.klrecycling.com/services#crushing"
+        }
+      ]
+    },
+    "priceRange": "$$",
+    "paymentAccepted": ["Cash", "Check"],
+    "currenciesAccepted": "USD",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "527",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "knowsAbout": [
+      "Ferrous metals recycling",
+      "Non-ferrous metals recycling",
+      "Scrap metal pricing",
+      "Industrial waste management",
+      "Environmental sustainability",
+      "Metal recovery from demolition",
+      "Roll-off container services",
+      "Industrial scrap collection",
+      "Construction debris recycling",
+      "Oilfield equipment recycling"
+    ],
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "John D.",
+          "jobTitle": "Operations Manager",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "East Texas Manufacturing"
+          }
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "K&L's container service is night and day compared to our last vendor. They are always on time, which has completely eliminated our production bottlenecks. The team treats us like family, not just another customer.",
+        "datePublished": "2024-01-15",
+        "itemReviewed": {
+          "@type": "Organization",
+          "name": "K&L Recycling"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Sarah P.",
+          "jobTitle": "Project Lead",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Fritcher Construction"
+          }
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Their team is professional, their pricing is transparent, and they are a true partner in our demolition projects. The compliance paperwork was handled perfectly, and we never had a safety concern.",
+        "datePublished": "2024-02-01",
+        "itemReviewed": {
+          "@type": "Organization",
+          "name": "K&L Recycling"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Mike R.",
+          "jobTitle": "Facility Director",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Texas Industrial Fabricators"
+          }
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Working with K&L has significantly increased our scrap revenue. Their guidance on sorting materials has been invaluable for our bottom line.",
+        "datePublished": "2024-02-15",
+        "itemReviewed": {
+          "@type": "Organization",
+          "name": "K&L Recycling"
+        }
+      }
     ]
   }
   </script>

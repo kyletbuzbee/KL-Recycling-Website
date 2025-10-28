@@ -193,68 +193,89 @@
 <!-- Add spacer div after header -->
 <div class="h-20"></div>
 
-<section class="relative w-full h-96 bg-gradient-to-br from-gray-900 to-green-900 flex items-center justify-center text-center text-white overflow-hidden">
-  <div class="absolute inset-0 bg-black opacity-30"></div>
-  <div class="relative z-10 p-4 max-w-6xl mx-auto">
-    <div class="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">🌱 Environmental Impact Calculator</div>
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase mb-6">
-      See Your Recycling Impact
-    </h1>
-    <p class="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-      Calculate the environmental benefits of recycling scrap metal. See how much CO₂, energy, and resources you're saving.
-    </p>
-  </div>
-</section>
+    <div class="text-center mb-16 py-16">
+      <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Environmental Impact Calculator</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Calculate the environmental benefits of recycling scrap metal. See how much CO₂, energy, and resources you're saving.</p>
+    </div>
 
 <section class="py-20 bg-gray-50">
   <div class="container mx-auto px-6 max-w-6xl">
     <div class="grid md:grid-cols-2 gap-12">
       <!-- Calculator Input Section -->
       <div id="calculator-form" class="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">Calculate Environmental Impact</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Select Your Material & Quantity</h2>
 
         <div class="space-y-6">
-          <!-- Material Type Selection -->
+          <!-- Recycle Frequency Selection -->
           <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-3">Material Type</label>
-            <div id="material-buttons" class="grid grid-cols-2 gap-3">
-              <button data-material="steel" class="material-btn p-4 rounded-xl border-2 border-gray-200 hover:border-green-300 hover:bg-green-25 transition-all duration-200">
-                <div class="text-center">
-                  <div class="text-lg mb-1">Steel</div>
-                  <div class="text-xs text-gray-600">2.7 tons CO₂/ton</div>
+            <label class="block text-sm font-semibold text-gray-700 mb-3">How often do you recycle?</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button data-frequency="once" class="frequency-btn p-3 border-2 border-gray-200 rounded-xl text-gray-700 font-medium hover:border-green-500 hover:bg-green-50 transition-all duration-300 group">
+                <div class="flex flex-col items-center">
+                  <span class="text-lg group-hover:scale-110 transition-transform duration-200">🔄</span>
+                  <span class="text-sm mt-1">One-time</span>
                 </div>
               </button>
-              <button data-material="aluminum" class="material-btn p-4 rounded-xl border-2 border-gray-200 hover:border-green-300 hover:bg-green-25 transition-all duration-200">
-                <div class="text-center">
-                  <div class="text-lg mb-1">Aluminum</div>
-                  <div class="text-xs text-gray-600">8.0 tons CO₂/ton</div>
-                </div>
-              </button>
-              <button data-material="copper" class="material-btn p-4 rounded-xl border-2 border-gray-200 hover:border-green-300 hover:bg-green-25 transition-all duration-200">
-                <div class="text-center">
-                  <div class="text-lg mb-1">Copper</div>
-                  <div class="text-xs text-gray-600">4.5 tons CO₂/ton</div>
-                </div>
-              </button>
-              <button data-material="brass" class="material-btn p-4 rounded-xl border-2 border-gray-200 hover:border-green-300 hover:bg-green-25 transition-all duration-200">
-                <div class="text-center">
-                  <div class="text-lg mb-1">Brass</div>
-                  <div class="text-xs text-gray-600">3.5 tons CO₂/ton</div>
-                </div>
-              </button>
-              <button data-material="plastics" class="material-btn p-4 rounded-xl border-2 border-gray-200 hover:border-green-300 hover:bg-green-25 transition-all duration-200">
-                <div class="text-center">
-                  <div class="text-lg mb-1">Plastics</div>
-                  <div class="text-xs text-gray-600">5.2 tons CO₂/ton</div>
+              <button data-frequency="monthly" class="frequency-btn p-3 border-2 border-gray-200 rounded-xl text-gray-700 font-medium hover:border-green-500 hover:bg-green-50 transition-all duration-300 group active">
+                <div class="flex flex-col items-center">
+                  <span class="text-lg group-hover:scale-110 transition-transform duration-200">📅</span>
+                  <span class="text-sm mt-1">Monthly</span>
                 </div>
               </button>
             </div>
           </div>
 
-          <!-- Amount Input -->
+          <!-- Material Type Selection with Icons -->
           <div>
-            <label for="amount-input" class="block text-sm font-semibold text-gray-700 mb-3">Amount Recycled</label>
-            <input id="amount-input" type="number" class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-300" placeholder="Enter amount in tons" step="0.1" min="0" />
+            <label for="material-type" class="block text-sm font-semibold text-gray-700 mb-3">Metal Type</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button data-material="steel" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
+                <div class="professional-icon flex-shrink-0">
+                  <img src="assets/icon/metal_steel_fragments.png" alt="Steel" class="w-8 h-8">
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-900 group-hover:text-green-700">Steel</div>
+                  <div class="text-xs text-gray-500">Steal beams, pipes, scrap</div>
+                </div>
+              </button>
+              <button data-material="aluminum" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
+                <div class="professional-icon flex-shrink-0">
+                  <img src="assets/icon/metal_aluminum_sheets.png" alt="Aluminum" class="w-8 h-8">
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-900 group-hover:text-green-700">Aluminum</div>
+                  <div class="text-xs text-gray-500">Cans, foil, siding</div>
+                </div>
+              </button>
+              <button data-material="copper" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
+                <div class="professional-icon flex-shrink-0">
+                  <img src="assets/icon/metal_copper_wiring.png" alt="Copper" class="w-8 h-8">
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-900 group-hover:text-green-700">Copper</div>
+                  <div class="text-xs text-gray-500">Wiring, pipes, circuits</div>
+                </div>
+              </button>
+              <button data-material="brass" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
+                <div class="professional-icon flex-shrink-0">
+                  <img src="assets/icon/metal_brass_fittings.png" alt="Brass" class="w-8 h-8">
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-900 group-hover:text-green-700">Brass</div>
+                  <div class="text-xs text-gray-500">Fittings, valves, fixtures</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Amount Input with Slider -->
+          <div>
+            <label for="amount-input" class="block text-sm font-semibold text-gray-700 mb-3">Amount Recycled <span id="amount-display" class="text-green-600 font-bold">0</span> tons</label>
+            <input id="amount-slider" type="range" min="0.5" max="50" step="0.5" value="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider" style="background: linear-gradient(to right, #16a34a 0%, #16a34a 10%, #e5e7eb 10%, #e5e7eb 100%);">
+            <div class="flex justify-between text-xs text-gray-500 mt-1">
+              <span>0.5 tons</span>
+              <span>50 tons</span>
+            </div>
           </div>
 
           <!-- Calculate Button -->
@@ -319,16 +340,7 @@
       </div>
     </div>
 
-    <!-- Final Call-to-Action -->
-    <div class="mt-16 text-center">
-      <div class="bg-royal-blue-600 rounded-3xl p-12 text-white">
-        <h3 class="text-3xl font-bold mb-4">Ready to Make Your Impact a Reality?</h3>
-        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">The numbers are just the beginning. Bring your materials to any of our 9 locations and turn your environmental savings into reality.</p>
-        <a href="locations.html" class="inline-block bg-white text-royal-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-          Find Your Nearest Location
-        </a>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -360,102 +372,274 @@
         </div>
       </div>
     </div>
-    <div class="mt-12 text-center">
-      <a href="quote.html" class="inline-block bg-royal-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-royal-blue-700 transition-colors">Get a Quote</a>
-    </div>
-    <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
-      <p>&copy; 2024 K&L Recycling. All Rights Reserved.</p>
-    </div>
+
+
   </div>
 </footer>
 
 <script src="scripts.js"></script>
 
 <script>
-// Impact calculation functionality
+// Enhanced Impact Calculator with local storage and PWA features
 document.addEventListener('DOMContentLoaded', function() {
   let selectedMaterial = '';
+  let selectedFrequency = 'monthly'; // Default to monthly
+  let selectedAmount = 1;
   let resultsHidden = true;
 
-  // Material selection
-  const materialButtons = document.querySelectorAll('.material-btn');
-  materialButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      materialButtons.forEach(btn => {
-        btn.classList.remove('border-green-500', 'bg-green-50', 'shadow-md');
-        btn.classList.add('border-gray-200');
-      });
-      this.classList.add('border-green-500', 'bg-green-50', 'shadow-md');
-      selectedMaterial = this.dataset.material;
+  // Load saved preferences from localStorage
+  const savedPreferences = localStorage.getItem('recycling-calculator-preferences');
+  if (savedPreferences) {
+    const prefs = JSON.parse(savedPreferences);
+    selectedMaterial = prefs.material || '';
+    selectedFrequency = prefs.frequency || 'monthly';
+    selectedAmount = prefs.amount || 1;
+  }
+
+  // Frequency selection (button interactions)
+  const frequencyBtns = document.querySelectorAll('.frequency-btn');
+  frequencyBtns.forEach(btn => {
+    // Set initial state
+    if (btn.dataset.frequency === selectedFrequency) {
+      btn.classList.add('border-green-500', 'bg-green-50', 'ring-2', 'ring-green-200');
+    }
+
+    btn.addEventListener('click', function() {
+      // Remove active state from all buttons
+      frequencyBtns.forEach(b => b.classList.remove('border-green-500', 'bg-green-50', 'ring-2', 'ring-green-200'));
+      // Add active state to clicked button
+      this.classList.add('border-green-500', 'bg-green-50', 'ring-2', 'ring-green-200');
+
+      selectedFrequency = this.dataset.frequency;
+      savePreferences();
+
+      // Animate button press
+      this.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
     });
   });
 
-  // Calculate button
+  // Material selection (button interactions)
+  const materialBtns = document.querySelectorAll('.material-btn');
+  materialBtns.forEach(btn => {
+    // Set initial state
+    if (btn.dataset.material === selectedMaterial) {
+      btn.classList.add('border-green-500', 'bg-green-50', 'ring-2', 'ring-green-200');
+      btn.querySelector('.font-semibold').classList.add('text-green-700');
+    }
+
+    btn.addEventListener('click', function() {
+      // Remove active state from all buttons
+      materialBtns.forEach(b => {
+        b.classList.remove('border-green-500', 'bg-green-50', 'ring-2', 'ring-green-200');
+        b.querySelector('.font-semibold').classList.remove('text-green-700');
+      });
+
+      // Add active state to clicked button
+      this.classList.add('border-green-500', 'bg-green-50', 'ring-2', 'ring-green-200');
+      this.querySelector('.font-semibold').classList.add('text-green-700');
+
+      selectedMaterial = this.dataset.material;
+      savePreferences();
+
+      // Animate material icon
+      const icon = this.querySelector('.professional-icon img');
+      icon.style.transform = 'scale(1.2) rotate(5deg)';
+      setTimeout(() => {
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      }, 300);
+    });
+  });
+
+  // Amount slider with live update
+  const amountSlider = document.getElementById('amount-slider');
+  const amountDisplay = document.getElementById('amount-display');
+
+  // Set initial value
+  amountSlider.value = selectedAmount;
+  updateAmountDisplay(selectedAmount);
+
+  // Update display when slider moves
+  amountSlider.addEventListener('input', function() {
+    const value = parseFloat(this.value);
+    selectedAmount = value;
+    updateAmountDisplay(value);
+    savePreferences();
+
+    // Update slider background dynamically
+    const percent = (value - this.min) / (this.max - this.min) * 100;
+    this.style.background = `linear-gradient(to right, #16a34a 0%, #16a34a ${percent}%, #e5e7eb ${percent}%, #e5e7eb 100%)`;
+  });
+
+  function updateAmountDisplay(amount) {
+    amountDisplay.textContent = formatNumber(amount);
+  }
+
+  function savePreferences() {
+    const preferences = {
+      material: selectedMaterial,
+      frequency: selectedFrequency,
+      amount: selectedAmount,
+      timestamp: Date.now()
+    };
+    localStorage.setItem('recycling-calculator-preferences', JSON.stringify(preferences));
+  }
+
+  // Enhanced calculate button with better UX
   const calculateBtn = document.getElementById('calculate-btn');
   const calculateText = document.getElementById('calculate-text');
   const loadingSpinner = document.getElementById('loading-spinner');
-  const amountInput = document.getElementById('amount-input');
   const resultsSection = document.getElementById('results-section');
+  const impactStats = document.getElementById('impact-stats');
 
   calculateBtn.addEventListener('click', function() {
-    const amount = parseFloat(amountInput.value);
-    if (!selectedMaterial || !amount || amount <= 0) {
-      alert('Please select a material and enter a valid amount');
+    if (!selectedMaterial) {
+      showError('Please select a metal type to calculate your impact.');
       return;
     }
 
-    // Show loading state
+    // Show loading state with animation
     calculateBtn.disabled = true;
     calculateText.classList.add('hidden');
     loadingSpinner.classList.remove('hidden');
 
+    // Hide results during calculation
+    resultsSection.classList.add('hidden');
+
+    // Simulate processing delay with progress updates
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+      progress += Math.random() * 15;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(progressInterval);
+
+        // Calculate and show results
+        calculateImpact();
+      }
+    }, 200);
+  });
+
+  function calculateImpact() {
     // Impact factors (per ton)
-    const impactFactors = {
-      steel: { co2Savings: 2.7, treesEquivalent: 55, energySavings: 14000, waterSavings: 2500 },
-      aluminum: { co2Savings: 8.0, treesEquivalent: 170, energySavings: 180000, waterSavings: 12000 },
-      copper: { co2Savings: 4.5, treesEquivalent: 95, energySavings: 50000, waterSavings: 6000 },
-      brass: { co2Savings: 3.5, treesEquivalent: 75, energySavings: 35000, waterSavings: 4000 },
-      plastics: { co2Savings: 5.2, treesEquivalent: 110, energySavings: 25000, waterSavings: 1500 }
+    const baseImpactFactors = {
+      steel: { co2Savings: 2.7, treesEquivalent: 55, energySavings: 14000, waterSavings: 2500, landfillReduction: 2.8 },
+      aluminum: { co2Savings: 8.0, treesEquivalent: 170, energySavings: 180000, waterSavings: 12000, landfillReduction: 2.3 },
+      copper: { co2Savings: 4.5, treesEquivalent: 95, energySavings: 50000, waterSavings: 6000, landfillReduction: 2.6 },
+      brass: { co2Savings: 3.5, treesEquivalent: 75, energySavings: 35000, waterSavings: 4000, landfillReduction: 2.4 }
     };
 
-    // Simulate calculation delay
+    const factor = baseImpactFactors[selectedMaterial];
+    let baseAmount = selectedAmount;
+
+    // If monthly recycling, multiply by 12 for annual impact
+    if (selectedFrequency === 'monthly') {
+      baseAmount = selectedAmount * 12;
+    }
+
+    // Calculate results with enhanced accuracy
+    const co2Savings = (factor.co2Savings * baseAmount).toFixed(1);
+    const treesEquivalent = Math.round(factor.treesEquivalent * baseAmount);
+    const energySavings = Math.round(factor.energySavings * baseAmount);
+    const waterSavings = Math.round(factor.waterSavings * baseAmount);
+    const landfillReduction = Math.round(factor.landfillReduction * baseAmount * 1000); // Convert to cubic yards
+
+    // Animate results display
     setTimeout(() => {
-      const factor = impactFactors[selectedMaterial];
-
-      // Calculate results
-      const co2Savings = (factor.co2Savings * amount).toFixed(1);
-      const treesEquivalent = Math.round(factor.treesEquivalent * amount);
-      const energySavings = Math.round(factor.energySavings * amount);
-      const waterSavings = Math.round(factor.waterSavings * amount);
-
-      // Update display
-      document.getElementById('trees-value').textContent = formatNumber(treesEquivalent);
-      document.getElementById('co2-value').textContent = co2Savings;
-      document.getElementById('energy-value').textContent = formatNumber(energySavings);
-      document.getElementById('water-value').textContent = formatNumber(waterSavings);
+      // Update display with animation
+      animateValue('trees-value', 0, treesEquivalent, 1500);
+      animateValue('co2-value', 0, parseFloat(co2Savings), 1500, 1);
+      animateValue('energy-value', 0, energySavings, 1500);
+      animateValue('water-value', 0, waterSavings, 1500);
 
       // Update explanation
+      const timePeriod = selectedFrequency === 'monthly' ? 'annually' : 'one-time';
       document.getElementById('impact-explanation').innerHTML =
-        `By recycling <strong>${formatNumber(amount)} tons</strong> of <strong>${selectedMaterial}</strong>, you're making a significant positive impact. This effort conserves enough energy to power a home for months and saves a massive amount of natural resources.`;
+        `By recycling <strong>${formatNumber(baseAmount)} tons</strong> of <strong>${selectedMaterial.charAt(0).toUpperCase() + selectedMaterial.slice(1)}</strong> ${timePeriod}, you're making an enormous positive impact. This effort eliminates enough CO₂ emissions to save ${formatNumber(treesEquivalent)} trees and conserves enough energy to power ${Math.round(energySavings/8760)} homes for an entire year.`;
 
-      // Show results
+      // Add personal achievement badge
+      if (baseAmount >= 10) {
+        addAchievement('🌟 Recycling Champion', `You've recycled ${formatNumber(baseAmount)} tons - that's ${formatNumber(co2Savings)} tons of CO₂ saved!`);
+      }
+
+      // Show results with animation
       resultsSection.classList.remove('hidden');
+      impactStats.style.animation = 'fadeInUp 0.8s ease-out';
       resultsHidden = false;
 
       // Hide loading state
       calculateBtn.disabled = false;
       calculateText.classList.remove('hidden');
       loadingSpinner.classList.add('hidden');
-    }, 2000);
-  });
-});
+    }, 800);
+  }
 
-function formatNumber(num) {
-  return new Intl.NumberFormat("en-US", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 1,
-  }).format(num);
-}
+  function addAchievement(title, description) {
+    const achievementDiv = document.createElement('div');
+    achievementDiv.className = 'fixed top-24 right-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl shadow-2xl z-50 transform translate-x-full transition-transform duration-500 animate-bounce';
+    achievementDiv.innerHTML = `
+      <div class="flex items-center space-x-3">
+        <div>
+          <h4 class="font-bold text-lg">${title}</h4>
+          <p class="text-sm opacity-90">${description}</p>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(achievementDiv);
+
+    setTimeout(() => {
+      achievementDiv.style.transform = 'translateX(0)';
+    }, 100);
+
+    setTimeout(() => {
+      achievementDiv.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (achievementDiv.parentNode) {
+          achievementDiv.parentNode.removeChild(achievementDiv);
+        }
+      }, 500);
+    }, 5000);
+  }
+
+  function animateValue(elementId, start, end, duration, decimals = 0) {
+    const element = document.getElementById(elementId);
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+        current = end;
+        clearInterval(timer);
+      }
+      element.textContent = formatNumber(current, decimals);
+    }, 16);
+  }
+
+  function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'fixed top-24 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-4 rounded-xl shadow-xl z-50';
+    errorDiv.textContent = message;
+    document.body.appendChild(errorDiv);
+
+    setTimeout(() => {
+      if (errorDiv.parentNode) {
+        errorDiv.parentNode.removeChild(errorDiv);
+      }
+    }, 4000);
+  }
+
+  function formatNumber(num) {
+    return new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 1,
+    }).format(num);
+  }
+});
 </script>
 
 </body>
