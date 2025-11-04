@@ -192,15 +192,13 @@
 
 <!-- Add spacer div after header -->
 <div class="h-20"></div>
-
     <div class="text-center mb-16 py-16">
       <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Environmental Impact Calculator</h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">Calculate the environmental benefits of recycling scrap metal. See how much CO₂, energy, and resources you're saving.</p>
-    </div>
 
 <section class="py-20 bg-gray-50">
   <div class="container mx-auto px-6 max-w-6xl">
-    <div class="grid md:grid-cols-2 gap-12">
+    <div class="space-y-12">
       <!-- Calculator Input Section -->
       <div id="calculator-form" class="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
         <h2 class="text-2xl font-bold text-gray-900 mb-6">Select Your Material & Quantity</h2>
@@ -211,14 +209,14 @@
             <label class="block text-sm font-semibold text-gray-700 mb-3">How often do you recycle?</label>
             <div class="grid grid-cols-2 gap-3">
               <button data-frequency="once" class="frequency-btn p-3 border-2 border-gray-200 rounded-xl text-gray-700 font-medium hover:border-green-500 hover:bg-green-50 transition-all duration-300 group">
-                <div class="flex flex-col items-center">
-                  <span class="text-lg group-hover:scale-110 transition-transform duration-200">🔄</span>
+                <div class="flex flex-col items-center space-y-2">
+                  <span class="text-3xl group-hover:scale-110 transition-transform duration-200">🔄</span>
                   <span class="text-sm mt-1">One-time</span>
                 </div>
               </button>
               <button data-frequency="monthly" class="frequency-btn p-3 border-2 border-gray-200 rounded-xl text-gray-700 font-medium hover:border-green-500 hover:bg-green-50 transition-all duration-300 group active">
-                <div class="flex flex-col items-center">
-                  <span class="text-lg group-hover:scale-110 transition-transform duration-200">📅</span>
+                <div class="flex flex-col items-center space-y-2">
+                  <span class="text-3xl group-hover:scale-110 transition-transform duration-200">📅</span>
                   <span class="text-sm mt-1">Monthly</span>
                 </div>
               </button>
@@ -230,17 +228,17 @@
             <label for="material-type" class="block text-sm font-semibold text-gray-700 mb-3">Metal Type</label>
             <div class="grid grid-cols-2 gap-3">
               <button data-material="steel" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
-                <div class="professional-icon flex-shrink-0">
-                  <img src="assets/icon/metal_steel_fragments.png" alt="Steel" class="w-8 h-8">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <img src="assets/icons/icons/metal_steel_fragments.png" alt="Steel" class="w-10 h-10">
                 </div>
                 <div>
                   <div class="font-semibold text-gray-900 group-hover:text-green-700">Steel</div>
-                  <div class="text-xs text-gray-500">Steal beams, pipes, scrap</div>
+                  <div class="text-xs text-gray-500">Beams, pipes, scrap</div>
                 </div>
               </button>
               <button data-material="aluminum" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
-                <div class="professional-icon flex-shrink-0">
-                  <img src="assets/icon/metal_aluminum_sheets.png" alt="Aluminum" class="w-8 h-8">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <img src="assets/icons/icons/metal_aluminum_sheets.png" alt="Aluminum" class="w-10 h-10">
                 </div>
                 <div>
                   <div class="font-semibold text-gray-900 group-hover:text-green-700">Aluminum</div>
@@ -248,8 +246,8 @@
                 </div>
               </button>
               <button data-material="copper" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
-                <div class="professional-icon flex-shrink-0">
-                  <img src="assets/icon/metal_copper_wiring.png" alt="Copper" class="w-8 h-8">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <img src="assets/icons/icons/metal_copper_wiring.png" alt="Copper" class="w-10 h-10">
                 </div>
                 <div>
                   <div class="font-semibold text-gray-900 group-hover:text-green-700">Copper</div>
@@ -257,8 +255,8 @@
                 </div>
               </button>
               <button data-material="brass" class="material-btn p-4 border-2 border-gray-200 rounded-xl text-left hover:border-green-500 hover:bg-green-50 transition-all duration-300 group flex items-center space-x-3">
-                <div class="professional-icon flex-shrink-0">
-                  <img src="assets/icon/metal_brass_fittings.png" alt="Brass" class="w-8 h-8">
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <img src="assets/icons/icons/metal_brass_fittings.png" alt="Brass" class="w-10 h-10">
                 </div>
                 <div>
                   <div class="font-semibold text-gray-900 group-hover:text-green-700">Brass</div>
@@ -270,11 +268,11 @@
 
           <!-- Amount Input with Slider -->
           <div>
-            <label for="amount-input" class="block text-sm font-semibold text-gray-700 mb-3">Amount Recycled <span id="amount-display" class="text-green-600 font-bold">0</span> tons</label>
-            <input id="amount-slider" type="range" min="0.5" max="50" step="0.5" value="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider" style="background: linear-gradient(to right, #16a34a 0%, #16a34a 10%, #e5e7eb 10%, #e5e7eb 100%);">
+            <label for="amount-input" class="block text-sm font-semibold text-gray-700 mb-3">Amount Recycled <span id="amount-display" class="text-green-600 font-bold">0</span> lbs</label>
+            <input id="amount-slider" type="range" min="100" max="100000" step="100" value="2000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider" style="background: linear-gradient(to right, rgb(22, 163, 74) 0%, rgb(22, 163, 74) 1.9019%, rgb(229, 231, 235) 1.9019%, rgb(229, 231, 235) 100%);">
             <div class="flex justify-between text-xs text-gray-500 mt-1">
-              <span>0.5 tons</span>
-              <span>50 tons</span>
+              <span>100 lbs</span>
+              <span>100,000 lbs</span>
             </div>
           </div>
 
@@ -322,8 +320,8 @@
         <!-- Results Explanation -->
         <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
           <h3 class="text-xl font-bold text-gray-900 mb-4">What This Means</h3>
-          <p id="impact-explanation">
-            By recycling <strong>0 tons</strong> of <strong>not selected</strong>, you're making a significant positive impact. This effort conserves enough energy to power a home for months and saves a massive amount of natural resources.
+          <p id="impact-explanation" class="leading-relaxed text-gray-700">
+            By recycling <strong>0 lbs</strong> of <strong>not selected</strong>, you're making a significant positive impact. This effort conserves enough energy to power a home for months and saves a massive amount of natural resources.
           </p>
         </div>
 
@@ -393,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const prefs = JSON.parse(savedPreferences);
     selectedMaterial = prefs.material || '';
     selectedFrequency = prefs.frequency || 'monthly';
-    selectedAmount = prefs.amount || 1;
+    selectedAmount = prefs.amount || 2000; // Default to 2000 lbs
   }
 
   // Frequency selection (button interactions)
@@ -449,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function() {
       icon.style.transform = 'scale(1.2) rotate(5deg)';
       setTimeout(() => {
         icon.style.transform = 'scale(1) rotate(0deg)';
-      }, 300);
+      }, 200);
     });
   });
 
@@ -532,19 +530,20 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const factor = baseImpactFactors[selectedMaterial];
-    let baseAmount = selectedAmount;
+    let amountInLbs = selectedAmount;
 
     // If monthly recycling, multiply by 12 for annual impact
     if (selectedFrequency === 'monthly') {
-      baseAmount = selectedAmount * 12;
+      amountInLbs = selectedAmount * 12;
     }
 
+    const amountInTons = amountInLbs / 2000;
+
     // Calculate results with enhanced accuracy
-    const co2Savings = (factor.co2Savings * baseAmount).toFixed(1);
-    const treesEquivalent = Math.round(factor.treesEquivalent * baseAmount);
-    const energySavings = Math.round(factor.energySavings * baseAmount);
-    const waterSavings = Math.round(factor.waterSavings * baseAmount);
-    const landfillReduction = Math.round(factor.landfillReduction * baseAmount * 1000); // Convert to cubic yards
+    const co2Savings = (factor.co2Savings * amountInTons).toFixed(1);
+    const treesEquivalent = Math.round(factor.treesEquivalent * amountInTons);
+    const energySavings = Math.round(factor.energySavings * amountInTons);
+    const waterSavings = Math.round(factor.waterSavings * amountInTons);
 
     // Animate results display
     setTimeout(() => {
@@ -557,11 +556,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // Update explanation
       const timePeriod = selectedFrequency === 'monthly' ? 'annually' : 'one-time';
       document.getElementById('impact-explanation').innerHTML =
-        `By recycling <strong>${formatNumber(baseAmount)} tons</strong> of <strong>${selectedMaterial.charAt(0).toUpperCase() + selectedMaterial.slice(1)}</strong> ${timePeriod}, you're making an enormous positive impact. This effort eliminates enough CO₂ emissions to save ${formatNumber(treesEquivalent)} trees and conserves enough energy to power ${Math.round(energySavings/8760)} homes for an entire year.`;
+        `By recycling <strong>${formatNumber(amountInLbs)} lbs</strong> of <strong>${selectedMaterial.charAt(0).toUpperCase() + selectedMaterial.slice(1)}</strong> ${timePeriod}, you're making an enormous positive impact. This effort eliminates enough CO₂ emissions to save ${formatNumber(treesEquivalent)} trees and conserves enough energy to power ${Math.round(energySavings/8760)} homes for an entire year.`;
 
       // Add personal achievement badge
-      if (baseAmount >= 10) {
-        addAchievement('🌟 Recycling Champion', `You've recycled ${formatNumber(baseAmount)} tons - that's ${formatNumber(co2Savings)} tons of CO₂ saved!`);
+      if (amountInTons >= 5) { // Achievement for 5+ tons (10,000 lbs)
+        addAchievement('🌟 Recycling Champion', `You've recycled ${formatNumber(amountInLbs)} lbs - that's ${formatNumber(co2Savings)} tons of CO₂ saved!`);
       }
 
       // Show results with animation

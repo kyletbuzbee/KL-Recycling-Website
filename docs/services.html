@@ -39,7 +39,7 @@
   </script>
 </head>
 <body>
-<header id="main-header" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 transition-all duration-300">
+<header id="main-header" class="fixed top-0 w-full z-50 nav-container transition-all duration-300">
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
       <a href="index.html" class="flex-shrink-0">
@@ -47,7 +47,7 @@
       </a>
 
       <nav class="hidden md:flex items-center">
-        <a href="quote.html" class="bg-royal-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-royal-blue-700 transition-all duration-300 px-3">Get Quote</a>
+        <a href="quote.html" class="bg-royal-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-royal-blue-700 transition-all duration-300 hover:scale-105">Get Quote</a>
         <a href="services.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">Services</a>
         <div class="relative group px-3">
           <a href="materials-we-buy.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors flex items-center">
@@ -123,501 +123,194 @@
 
 
 
+<!-- Hero Section -->
+<section class="relative w-full h-96 bg-gradient-to-br from-gray-900 to-royal-blue-900 flex items-center justify-center text-center text-white overflow-hidden">
+  <div class="absolute inset-0 bg-black opacity-30"></div>
+  <div class="relative z-10 p-4 max-w-6xl mx-auto">
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase mb-6">
+      Our Services
+    </h1>
+    <p class="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed">
+      Professional metal recycling solutions with container rentals, industrial services, and competitive pricing across East Texas and Kansas.
+    </p>
+  </div>
+</section>
+
 <section class="py-24 bg-white">
   <div class="container mx-auto px-6">
-    <div class="text-center mb-16 animate-on-scroll" data-animate="slide-in-bottom">
-      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Our Professional Services</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore our comprehensive range of scrap metal recycling solutions, organized by category for easy navigation.</p>
+    <div class="text-center mb-16">
+      <h2 class="text-display-lg font-black text-gray-900 mb-4">Our Professional Services</h2>
+      <p class="text-display-sm text-gray-600 max-w-3xl mx-auto">Explore our comprehensive range of scrap metal recycling solutions, organized by category for easy navigation.</p>
     </div>
 
     <!-- Tabbed Services Interface -->
     <div class="max-w-6xl mx-auto">
       <!-- Tab Navigation -->
-      <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
-        <button onclick="switchServiceTab('general')" id="general-tab" class="tab-button active text-lg font-bold px-6 py-4 bg-royal-blue-50 text-royal-blue-600 border-b-4 border-royal-blue-600 transition-colors">
+      <nav class="tab-nav-enhanced flex flex-wrap justify-center mb-8" role="tablist">
+        <button onclick="switchServiceTab('general')" id="general-tab" class="tab-nav-item active text-lg font-bold px-6 py-4 bg-royal-blue-50 text-royal-blue-600 border-b-4 border-royal-blue-600 transition-colors" role="tab" aria-selected="true">
           General Services
         </button>
-        <button onclick="switchServiceTab('specialized')" id="specialized-tab" class="tab-button text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors">
+        <button onclick="switchServiceTab('specialized')" id="specialized-tab" class="tab-nav-item text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors" role="tab" aria-selected="false">
           Specialized Services
         </button>
-        <button onclick="switchServiceTab('equipment')" id="equipment-tab" class="tab-button text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors">
+        <button onclick="switchServiceTab('equipment')" id="equipment-tab" class="tab-nav-item text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors" role="tab" aria-selected="false">
           Equipment & Logistics
         </button>
-      </div>
+      </nav>
 
       <!-- Tab Content -->
       <div id="general-services" class="tab-content">
-        <div class="grid md:grid-cols-2 gap-8 equal-height-cards" data-stagger="true">
+        <div class="grid md:grid-cols-2 gap-8 equal-height-cards">
           <!-- Container Rentals -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="professional-icon icon-bg-primary mb-6 mx-auto" data-icon="services-containers">
-              <img src="assets/icons/icons/container_roll_off.png" alt="Roll-off Container Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/services/roll-off/roll-off-container-options.jpg" alt="Roll-Off Containers" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Container Rentals</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Professional container rental services for construction, demolition, and industrial projects throughout East Texas.</p>
+              <a href="services/roll-off.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-semibold rounded-lg hover:bg-royal-blue-700 transition-colors">
+                Learn More
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Container Rentals</h3>
-            <div class="space-y-4 mb-6 flex-grow">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">10, 20, 30, and 40-Yard Containers</p>
-                  <p class="text-gray-600 text-sm">Perfect for construction sites and demolition projects</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Flexible Rental Terms</p>
-                  <p class="text-gray-600 text-sm">Weekly, monthly, or project-based pricing</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Same-Day Delivery</p>
-                  <p class="text-gray-600 text-sm">24-48 hour delivery throughout East Texas</p>
-                </div>
-              </div>
-            </div>
-            <a href="quote.html?service=roll-off-containers" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Get Container Quote
-            </a>
           </div>
 
           <!-- Commercial Pickups -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="professional-icon icon-bg-success mb-6 mx-auto" data-icon="services-pickup">
-              <img src="assets/icons/icons/truck_delivery_mobile.png" alt="Commercial Pickup Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/equipment/scrap_truck.png" alt="Commercial Pickups" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Pickups</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Scheduled pickups, walk-in collections, and bulk processing solutions for businesses of all sizes.</p>
+              <a href="quote.html?service=commercial" class="inline-block w-full text-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors">
+                Get Quote
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Commercial Pickups</h3>
-            <div class="space-y-4 mb-6 flex-grow">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Scheduled Collections</p>
-                  <p class="text-gray-600 text-sm">Regular pickup services for businesses</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Walk-In Collections</p>
-                  <p class="text-gray-600 text-sm">Drop off scrap metals at our facilities</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Bulk Processing</p>
-                  <p class="text-gray-600 text-sm">High-volume metal processing capabilities</p>
-                </div>
-              </div>
-            </div>
-            <a href="quote.html?service=commercial-pickup" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Request Commercial Pickup
-            </a>
           </div>
 
           <!-- Cash for Scrap -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="professional-icon icon-bg-warning mb-6 mx-auto" data-icon="services-cash">
-              <img src="assets/icons/icons/weight_scale_accurate.png" alt="Cash for Scrap Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/ferrous/tin.jpg" alt="Cash for Scrap" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Cash for Scrap</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Competitive pricing for all types of scrap metal with instant cash payments and fair market rates.</p>
+              <a href="materials-we-buy.html" class="inline-block w-full text-center px-6 py-3 bg-yellow-600 text-white font-semibold rounded-lg hover:bg-yellow-700 transition-colors">
+                View Materials
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Cash for Scrap</h3>
-            <div class="space-y-4 mb-6 flex-grow">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Fair Market Pricing</p>
-                  <p class="text-gray-600 text-sm">Competitive rates based on current market values</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Instant Payment</p>
-                  <p class="text-gray-600 text-sm">Cash or check payments on the spot</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">All Materials Accepted</p>
-                  <p class="text-gray-600 text-sm">Ferrous, non-ferrous, precious metals</p>
-                </div>
-              </div>
-            </div>
-            <a href="materials-we-buy.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              View Materials We Buy
-            </a>
           </div>
 
           <!-- Public Drop-Off -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="professional-icon icon-bg-info mb-6 mx-auto" data-icon="services-public">
-              <img src="assets/icons/icons/education_school.png" alt="Public Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/locations/mineola_yard.png" alt="Public Services" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Public Drop-Off</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Individual customer services including drop-off locations, free estimates, and educational resources.</p>
+              <a href="services/public-services.html" class="inline-block w-full text-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Learn More
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Public Services</h3>
-            <div class="space-y-4 mb-6 flex-grow">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Individual Customers Welcome</p>
-                  <p class="text-gray-600 text-sm">Residential and small business collections</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Free Estimates</p>
-                  <p class="text-gray-600 text-sm">No obligation pricing and appraisal</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Educational Resources</p>
-                  <p class="text-gray-600 text-sm">Tips and guides for metal identification</p>
-                </div>
-              </div>
-            </div>
-            <a href="services/public-services.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Learn About Public Services
-            </a>
           </div>
         </div>
       </div>
 
       <div id="specialized-services" class="tab-content hidden">
-        <div class="grid md:grid-cols-2 gap-8 items-stretch" data-stagger="true">
+        <div class="grid md:grid-cols-2 gap-8 equal-height-cards">
           <!-- Industrial Demolition -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-error mb-6 mx-auto" data-icon="services-demolition">
-              <img src="assets/icons/icons/construction_debris.png" alt="Industrial Demolition Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/services/oilfield demo/Tank and Shear 2.jpg" alt="Oilfield & Industrial Demolition" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Industrial Demolition</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Professional demolition services for oilfield equipment, industrial structures, and hazardous material handling with full compliance.</p>
+              <a href="services/oilfield-demolition.html" class="inline-block w-full text-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors">
+                Learn More
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Oilfield & Industrial Demolition</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Oil Tank Demolition</p>
-                  <p class="text-gray-600 text-sm">Safe removal and recycling of oilfield tanks</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Pipeline Decommissioning</p>
-                  <p class="text-gray-600 text-sm">Professional dismantling and material recovery</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Equipment Dismantling</p>
-                  <p class="text-gray-600 text-sm">Industrial machinery and equipment removal</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Hazmat Compliance</p>
-                  <p class="text-gray-600 text-sm">Licensed for hazardous material handling</p>
-                </div>
-              </div>
-            </div>
-            <a href="services/oilfield-demolition.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Schedule Demolition Services
-            </a>
           </div>
 
           <!-- Mobile Crushing -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-purple mb-6 mx-auto" data-icon="services-crushing">
-              <img src="assets/icons/icons/car_crusher_mobile.png" alt="Mobile Crushing Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/services/car crushing/car-crushing.png" alt="Mobile Crushing Services" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Mobile Crushing</h3>
+              <p class="text-gray-600 mb-6 flex-grow">On-site concrete and asphalt crushing with portable equipment to reduce costs and environmental impact.</p>
+              <a href="services/mobile-crushing.html" class="inline-block w-full text-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors">
+                Learn More
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Mobile Crushing Services</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Concrete Crushing</p>
-                  <p class="text-gray-600 text-sm">On-site concrete processing and recycling</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Asphalt Recycling</p>
-                  <p class="text-gray-600 text-sm">Road millings and asphalt material processing</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Site Preparation</p>
-                  <p class="text-gray-600 text-sm">Grade preparation and environmental compliance</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Cost Reduction</p>
-                  <p class="text-gray-600 text-sm">Eliminate landfill fees and transport costs</p>
-                </div>
-              </div>
-            </div>
-            <a href="services/mobile-crushing.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Request Mobile Crushing
-            </a>
           </div>
 
           <!-- Environmental Services -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-success mb-6 mx-auto" data-icon="services-environmental">
-              <img src="assets/icons/icons/impact_sustainability.png" alt="Environmental Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/layout/sustainable_recycling.jpg" alt="Environmental Services" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Environmental Services</h3>
+              <p class="text-gray-600 mb-6 flex-grow">REMA certified processing with zero-landfill solutions and comprehensive environmental compliance services.</p>
+              <a href="sustainability.html" class="inline-block w-full text-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors">
+                Learn More
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Environmental Services</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">REMA Certified Processing</p>
-                  <p class="text-gray-600 text-sm">Industry-leading environmental standards</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Zero-Landfill Solutions</p>
-                  <p class="text-gray-600 text-sm">100% material recycling commitment</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Environmental Compliance</p>
-                  <p class="text-gray-600 text-sm">EPA and state regulatory compliance</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Carbon Footprint Reduction</p>
-                  <p class="text-gray-600 text-sm">Measurable environmental impact services</p>
-                </div>
-              </div>
-            </div>
-            <a href="sustainability.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Learn About Sustainability
-            </a>
           </div>
 
           <!-- Emergency Response -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-warning mb-6 mx-auto" data-icon="services-emergency">
-              <img src="assets/icons/icons/construction_debris.png" alt="Emergency Response Services" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/services/demolition-safety.png" alt="Emergency Response" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Emergency Response</h3>
+              <p class="text-gray-600 mb-6 flex-grow">24/7 emergency services for storm damage cleanup, hazardous spills, and priority equipment deployment.</p>
+              <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors">
+                Emergency Contact
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Emergency Response</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">24/7 Emergency Services</p>
-                  <p class="text-gray-600 text-sm">Round-the-clock emergency response availability</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Storm Damage Cleanup</p>
-                  <p class="text-gray-600 text-sm">Rapid response for weather-related incidents</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Hazardous Spill Response</p>
-                  <p class="text-gray-600 text-sm">Trained professionals for safe cleanup</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Priority Equipment</p>
-                  <p class="text-gray-600 text-sm">Dedicated equipment for emergency situations</p>
-                </div>
-              </div>
-            </div>
-            <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Emergency Contact
-            </a>
           </div>
         </div>
       </div>
 
       <div id="equipment-services" class="tab-content hidden">
-        <div class="grid md:grid-cols-2 gap-8 items-stretch" data-stagger="true">
+        <div class="grid md:grid-cols-2 gap-8 equal-height-cards">
           <!-- Roll-Off Containers -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-primary mb-6 mx-auto" data-icon="equipment-containers">
-              <img src="assets/icons/icons/container_roll_off.png" alt="Roll-off Container Equipment" loading="lazy" decoding="async">
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/services/roll-off/roll-off-container-options1.png" alt="Roll-Off Containers" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Container Rentals</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Multiple container sizes with GPS tracking, modern fleet management, and flexible scheduling throughout East Texas.</p>
+              <a href="services/roll-off.html" class="inline-block w-full text-center px-6 py-3 bg-cyan-600 text-white font-semibold rounded-lg hover:bg-cyan-700 transition-colors">
+                Learn More
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Roll-Off Containers</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Multiple Sizes Available</p>
-                  <p class="text-gray-600 text-sm">20, 30, 40-yard containers for every project</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Fleet Management</p>
-                  <p class="text-gray-600 text-sm">Modern, well-maintained equipment fleet</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">GPS Tracking</p>
-                  <p class="text-gray-600 text-sm">Real-time container location monitoring</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Flexible Scheduling</p>
-                  <p class="text-gray-600 text-sm">Drop-off and pickup on your schedule</p>
-                </div>
-              </div>
-            </div>
-            <a href="services/roll-off.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Roll-Off Container Details
-            </a>
           </div>
 
           <!-- Heavy Equipment -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-gray mb-6 mx-auto" data-icon="equipment-heavy">
-              <i class="fas fa-wrench text-white text-2xl" aria-hidden="true"></i>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/equipment/operating _equipment.png" alt="Heavy Equipment" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Heavy Equipment</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Excavators, loaders, crushers, and transportation fleet with certified operators for all your equipment needs.</p>
+              <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-slate-600 text-white font-semibold rounded-lg hover:bg-slate-700 transition-colors">
+                Contact Us
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Heavy Equipment</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Excavators & Loaders</p>
-                  <p class="text-gray-600 text-sm">Heavy-duty equipment for material handling</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Mobile Crushers</p>
-                  <p class="text-gray-600 text-sm">On-site crushing and processing equipment</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Transportation Fleet</p>
-                  <p class="text-gray-600 text-sm">Licensed and insured heavy transport</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Certified Operators</p>
-                  <p class="text-gray-600 text-sm">Experienced, licensed equipment operators</p>
-                </div>
-              </div>
-            </div>
-            <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Contact for Equipment
-            </a>
           </div>
 
           <!-- Logistics & Transportation -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-info mb-6 mx-auto" data-icon="equipment-logistics">
-              <i class="fas fa-shipping-fast text-white text-2xl" aria-hidden="true"></i>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/locations/tyler_headquarters.png" alt="Logistics & Transportation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Logistics & Transportation</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Door-to-door transportation with fleet optimization, cargo security, and licensed cross-state shipping services.</p>
+              <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition-colors">
+                Contact Us
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Logistics & Transportation</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Full-Service Transport</p>
-                  <p class="text-gray-600 text-sm">Door-to-door metal transportation services</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Fleet Optimization</p>
-                  <p class="text-gray-600 text-sm">Efficient routing and load maximization</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Cargo Security</p>
-                  <p class="text-gray-600 text-sm">Secured transportation with tracking</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Cross-State Shipping</p>
-                  <p class="text-gray-600 text-sm">Licensed for interstate metal transport</p>
-                </div>
-              </div>
-            </div>
-            <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Contact for Transportation
-            </a>
           </div>
 
           <!-- Facility & Processing -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="professional-icon icon-bg-success mb-6 mx-auto" data-icon="equipment-facility">
-              <i class="fas fa-industry text-white text-2xl" aria-hidden="true"></i>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group" role="article">
+            <img src="assets/locations/madfos_yard.png" alt="Processing Facilities" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="p-6 flex flex-col flex-grow text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Processing Facilities</h3>
+              <p class="text-gray-600 mb-6 flex-grow">Modern processing plants with certified weighing systems, material segregation technology, and quality assurance.</p>
+              <a href="locations.html" class="inline-block w-full text-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors">
+                Visit Facilities
+              </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Processing Facilities</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Modern Processing Plants</p>
-                  <p class="text-gray-600 text-sm">State-of-the-art metal processing facilities</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Scale & Grading Systems</p>
-                  <p class="text-gray-600 text-sm">Certified weighing and grading equipment</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Material Segregation</p>
-                  <p class="text-gray-600 text-sm">Advanced sorting and separation technology</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
-                <div>
-                  <p class="font-semibold text-gray-900">Quality Assurance</p>
-                  <p class="text-gray-600 text-sm">Stringent quality control processes</p>
-                </div>
-              </div>
-            </div>
-            <a href="locations.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Visit Our Facilities
-            </a>
           </div>
         </div>
       </div>
@@ -688,11 +381,12 @@ function switchServiceTab(tabName) {
   const tabContents = document.querySelectorAll('.tab-content');
   tabContents.forEach(content => content.classList.add('hidden'));
 
-  // Remove active class from all tab buttons
-  const tabButtons = document.querySelectorAll('.tab-button');
+  // Remove active class and aria attributes from all tab buttons
+  const tabButtons = document.querySelectorAll('.tab-nav-item');
   tabButtons.forEach(button => {
     button.classList.remove('active', 'text-royal-blue-600', 'bg-royal-blue-50', 'border-b-4', 'border-royal-blue-600', 'font-bold');
     button.classList.add('text-gray-500', 'font-semibold', 'border-b-2');
+    button.setAttribute('aria-selected', 'false');
   });
 
   // Show selected tab content
@@ -701,11 +395,12 @@ function switchServiceTab(tabName) {
     selectedContent.classList.remove('hidden');
   }
 
-  // Set active tab button
+  // Set active tab button with proper aria attributes
   const selectedButton = document.getElementById(tabName + '-tab');
   if (selectedButton) {
     selectedButton.classList.add('active', 'text-royal-blue-600', 'bg-royal-blue-50', 'border-b-4', 'border-royal-blue-600', 'font-bold');
     selectedButton.classList.remove('text-gray-500', 'font-semibold');
+    selectedButton.setAttribute('aria-selected', 'true');
   }
 }
 

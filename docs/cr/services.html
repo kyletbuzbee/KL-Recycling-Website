@@ -39,17 +39,17 @@
   </script>
 </head>
 <body>
-<header id="main-header" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 transition-all duration-300">
+<header id="main-header" class="fixed top-0 w-full z-50 nav-container transition-all duration-300">
   <div class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
       <a href="index.html" class="flex-shrink-0">
         <img src="assets/certifications-logo/logo.png" alt="K&L Recycling" class="w-auto h-10 hover:scale-105 transition-transform duration-300" onerror="this.src='assets/services-placeholder.jpg'">
       </a>
 
-      <nav class="hidden md:flex items-center space-x-8">
+      <nav class="hidden md:flex items-center">
         <a href="quote.html" class="bg-royal-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-royal-blue-700 transition-all duration-300 hover:scale-105">Get Quote</a>
-        <a href="services.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">Services</a>
-        <div class="relative group">
+        <a href="services.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">Services</a>
+        <div class="relative group px-3">
           <a href="materials-we-buy.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors flex items-center">
             Materials <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </a>
@@ -58,10 +58,10 @@
             <a href="materials-guide.html" class="block px-3 py-2 text-sm text-slate-gray-700 hover:bg-gray-100 rounded">Materials Guide</a>
           </div>
         </div>
-        <a href="locations.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">Locations</a>
-        <a href="contact.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">Contact</a>
-        <a href="about.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors">About</a>
-        <div class="relative group">
+        <a href="locations.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">Locations</a>
+        <a href="contact.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">Contact</a>
+        <a href="about.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors px-3">About</a>
+        <div class="relative group px-3">
           <a href="resources.html" class="font-medium text-lg text-slate-gray-700 hover:text-royal-blue-700 transition-colors flex items-center">
             Resources <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </a>
@@ -125,68 +125,70 @@
 
 <section class="py-24 bg-white">
   <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Our Professional Services</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore our comprehensive range of scrap metal recycling solutions, organized by category for easy navigation.</p>
+    <div class="text-center mb-16 intersection-fade-in stagger-delay-100" data-animate="slide-in-bottom">
+      <h2 class="text-display-lg font-black text-gray-900 mb-4">Our Professional Services</h2>
+      <p class="text-display-sm text-gray-600 max-w-3xl mx-auto">Explore our comprehensive range of scrap metal recycling solutions, organized by category for easy navigation.</p>
     </div>
 
     <!-- Tabbed Services Interface -->
     <div class="max-w-6xl mx-auto">
       <!-- Tab Navigation -->
-      <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
-        <button onclick="switchServiceTab('general')" id="general-tab" class="tab-button active text-lg font-bold px-6 py-4 bg-royal-blue-50 text-royal-blue-600 border-b-4 border-royal-blue-600 transition-colors">
+      <nav class="tab-nav-enhanced flex flex-wrap justify-center mb-8" role="tablist">
+        <button onclick="switchServiceTab('general')" id="general-tab" class="tab-nav-item active text-lg font-bold px-6 py-4 bg-royal-blue-50 text-royal-blue-600 border-b-4 border-royal-blue-600 transition-colors" role="tab" aria-selected="true">
           General Services
         </button>
-        <button onclick="switchServiceTab('specialized')" id="specialized-tab" class="tab-button text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors">
+        <button onclick="switchServiceTab('specialized')" id="specialized-tab" class="tab-nav-item text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors" role="tab" aria-selected="false">
           Specialized Services
         </button>
-        <button onclick="switchServiceTab('equipment')" id="equipment-tab" class="tab-button text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors">
+        <button onclick="switchServiceTab('equipment')" id="equipment-tab" class="tab-nav-item text-lg font-semibold px-6 py-4 text-gray-500 hover:text-royal-blue-600 transition-colors" role="tab" aria-selected="false">
           Equipment & Logistics
         </button>
-      </div>
+      </nav>
 
       <!-- Tab Content -->
       <div id="general-services" class="tab-content">
-        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div class="grid md:grid-cols-2 gap-8 equal-height-cards stagger-animation" data-stagger="true">
           <!-- Container Rentals -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-truck text-white text-2xl"></i>
+          <div class="service-card-advanced stagger-item stagger-delay-1" role="article">
+            <div class="service-card-image">
+              <img src="assets/services/roll-off/roll-off-container.jpg" alt="Roll-off Container for scrap metal" class="lazy-load img-blur">
             </div>
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Container Rentals</h3>
             <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+                <i class="fas fa-check-circle bg-success-100 text-success-600 rounded-full p-1 mt-1 flex-shrink-0 icon-optimized" aria-hidden="true"></i>
                 <div>
-                  <p class="font-semibold text-gray-900">20, 30, and 40-Yard Containers</p>
+                  <p class="font-semibold text-gray-900">10, 20, 30, and 40-Yard Containers</p>
                   <p class="text-gray-600 text-sm">Perfect for construction sites and demolition projects</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+                <i class="fas fa-check-circle bg-success-100 text-success-600 rounded-full p-1 mt-1 flex-shrink-0 icon-optimized" aria-hidden="true"></i>
                 <div>
                   <p class="font-semibold text-gray-900">Flexible Rental Terms</p>
                   <p class="text-gray-600 text-sm">Weekly, monthly, or project-based pricing</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+                <i class="fas fa-check-circle bg-success-100 text-success-600 rounded-full p-1 mt-1 flex-shrink-0 icon-optimized" aria-hidden="true"></i>
                 <div>
                   <p class="font-semibold text-gray-900">Same-Day Delivery</p>
                   <p class="text-gray-600 text-sm">24-48 hour delivery throughout East Texas</p>
                 </div>
               </div>
             </div>
-            <a href="quote.html?service=roll-off-containers" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
-              Get Container Quote
+            <a href="quote.html?service=roll-off-containers" class="cta-button-gradient btn-loading-enable" aria-label="Get quote for container rental services">
+              <span class="btn-text">Get Container Quote</span>
+              <span class="btn-loading hidden">Getting Quote...</span>
             </a>
+            </div>
           </div>
 
           <!-- Commercial Pickups -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-industry text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/equipment/operating _equipment.png" alt="Commercial Pickup Services at K&L Recycling facility" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Commercial Pickups</h3>
             <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
@@ -214,13 +216,13 @@
             <a href="quote.html?service=commercial-pickup" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Request Commercial Pickup
             </a>
+            </div>
           </div>
 
           <!-- Cash for Scrap -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-dollar-sign text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/ferrous/tin.jpg" alt="Various scrap metals sorted for cash payment" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Cash for Scrap</h3>
             <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
@@ -248,13 +250,13 @@
             <a href="materials-we-buy.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               View Materials We Buy
             </a>
+            </div>
           </div>
 
           <!-- Public Drop-Off -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col">
-            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-users text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/equipment/scrap_truck.png" alt="Community members participating in public recycling services" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Public Services</h3>
             <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
@@ -282,19 +284,19 @@
             <a href="services/public-services.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Learn About Public Services
             </a>
+            </div>
           </div>
         </div>
       </div>
 
       <div id="specialized-services" class="tab-content hidden">
-        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch" data-stagger="true">
           <!-- Industrial Demolition -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-building text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/services/oilfield demo/Tank and Shear 2.jpg" alt="Industrial Demolition Services in action" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Oilfield & Industrial Demolition</h3>
-            <div class="space-y-4 mb-6">
+            <div class="space-y-4 mb-6 flex-grow">
               <div class="flex items-start gap-3">
                 <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
@@ -327,17 +329,16 @@
             <a href="services/oilfield-demolition.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Schedule Demolition Services
             </a>
+            </div>
           </div>
 
           <!-- Mobile Crushing -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-cogs text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/services/car crushing/car-crushing.png" alt="Mobile Crushing equipment processing concrete" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Mobile Crushing Services</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+            <div class="space-y-4 mb-6 flex-grow">
+              <div class="flex items-start gap-3">                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
                   <p class="font-semibold text-gray-900">Concrete Crushing</p>
                   <p class="text-gray-600 text-sm">On-site concrete processing and recycling</p>
@@ -368,17 +369,16 @@
             <a href="services/mobile-crushing.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Request Mobile Crushing
             </a>
+            </div>
           </div>
 
           <!-- Environmental Services -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-leaf text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/non-ferrous/non-ferrous.png" alt="Hands holding a plant, symbolizing environmental services" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Environmental Services</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+            <div class="space-y-4 mb-6 flex-grow">
+              <div class="flex items-start gap-3">                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
                   <p class="font-semibold text-gray-900">REMA Certified Processing</p>
                   <p class="text-gray-600 text-sm">Industry-leading environmental standards</p>
@@ -409,17 +409,16 @@
             <a href="sustainability.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Learn About Sustainability
             </a>
+            </div>
           </div>
 
           <!-- Emergency Response -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/services/demolition-safety.png" alt="Emergency response team at a cleanup site" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Emergency Response</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+            <div class="space-y-4 mb-6 flex-grow">
+              <div class="flex items-start gap-3">                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
                   <p class="font-semibold text-gray-900">24/7 Emergency Services</p>
                   <p class="text-gray-600 text-sm">Round-the-clock emergency response availability</p>
@@ -450,21 +449,20 @@
             <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Emergency Contact
             </a>
+            </div>
           </div>
         </div>
       </div>
 
       <div id="equipment-services" class="tab-content hidden">
-        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch" data-stagger="true">
           <!-- Roll-Off Containers -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-truck text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/services/roll-off/kl-recycling-roll-off-container-full.jpeg" alt="Roll-off Container Equipment" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Roll-Off Containers</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+            <div class="space-y-4 mb-6 flex-grow">
+              <div class="flex items-start gap-3">                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
                   <p class="font-semibold text-gray-900">Multiple Sizes Available</p>
                   <p class="text-gray-600 text-sm">20, 30, 40-yard containers for every project</p>
@@ -495,17 +493,16 @@
             <a href="services/roll-off.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Roll-Off Container Details
             </a>
+            </div>
           </div>
 
           <!-- Heavy Equipment -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-wrench text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/equipment/heavy-equipment-in-action.jpeg" alt="Heavy equipment moving scrap metal" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Heavy Equipment</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+            <div class="space-y-4 mb-6 flex-grow">
+              <div class="flex items-start gap-3">                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
                   <p class="font-semibold text-gray-900">Excavators & Loaders</p>
                   <p class="text-gray-600 text-sm">Heavy-duty equipment for material handling</p>
@@ -536,17 +533,16 @@
             <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Contact for Equipment
             </a>
+            </div>
           </div>
 
           <!-- Logistics & Transportation -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-shipping-fast text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/services/transportation-fleet.jpeg" alt="K&L Recycling transportation fleet" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Logistics & Transportation</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+            <div class="space-y-4 mb-6 flex-grow">
+              <div class="flex items-start gap-3">                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
                   <p class="font-semibold text-gray-900">Full-Service Transport</p>
                   <p class="text-gray-600 text-sm">Door-to-door metal transportation services</p>
@@ -577,17 +573,16 @@
             <a href="contact.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Contact for Transportation
             </a>
+            </div>
           </div>
 
           <!-- Facility & Processing -->
-          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
-            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i class="fas fa-industry text-white text-2xl"></i>
-            </div>
+          <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col overflow-hidden">
+            <img src="assets/locations/tyler_headquarters.png" alt="K&L Recycling processing facility" class="w-full h-48 object-cover">
+            <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900 mb-4">Processing Facilities</h3>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start gap-3">
-                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
+            <div class="space-y-4 mb-6 flex-grow">
+              <div class="flex items-start gap-3">                <i class="fas fa-check-circle bg-green-100 text-green-600 rounded-full p-1 mt-1 flex-shrink-0"></i>
                 <div>
                   <p class="font-semibold text-gray-900">Modern Processing Plants</p>
                   <p class="text-gray-600 text-sm">State-of-the-art metal processing facilities</p>
@@ -618,6 +613,7 @@
             <a href="locations.html" class="inline-block w-full text-center px-6 py-3 bg-royal-blue-600 text-white font-bold rounded-lg hover:bg-royal-blue-700 transition-colors">
               Visit Our Facilities
             </a>
+            </div>
           </div>
         </div>
       </div>
@@ -627,7 +623,7 @@
       <h3 class="text-2xl font-bold text-gray-900 mb-4">Need Something More Specific?</h3>
       <p class="text-lg text-gray-600 mb-8">Not sure which service is right for you? Our team can help determine the best solution for your project.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="contact.html" class="px-8 py-4 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors">Contact Our Team</a>
+        <a href="contact.html" class="px-8 py-4 border-2 border-royal-blue-600 text-royal-blue-600 font-bold rounded-xl hover:bg-royal-blue-600 hover:text-white transition-colors">Contact Our Team</a>
         <a href="quote.html" class="px-8 py-4 border-2 border-royal-blue-600 text-royal-blue-600 font-bold rounded-xl hover:bg-royal-blue-600 hover:text-white transition-colors">Get Free Quote</a>
         <a href="locations.html" class="px-8 py-4 border-2 border-royal-blue-600 text-royal-blue-600 font-bold rounded-xl hover:bg-royal-blue-600 hover:text-white transition-colors">Find a Location</a>
       </div>
@@ -679,7 +675,8 @@
   </div>
 </footer>
 
-<script src="scripts.js"></script>
+  <script src="icon-config.js"></script>
+  <script src="scripts.js"></script>
 
 <script>
 function switchServiceTab(tabName) {
